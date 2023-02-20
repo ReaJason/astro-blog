@@ -1,4 +1,12 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+import Unocss from "@unocss/astro";
+import presetUno from "@unocss/preset-uno";
+import presetIcons from "@unocss/preset-icons";
 
-// https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  integrations: [
+    Unocss({
+      presets: [presetUno(), presetIcons()],
+    }),
+  ],
+});
