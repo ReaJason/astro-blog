@@ -4,7 +4,11 @@ import presetUno from '@unocss/preset-uno'
 import presetIcons from '@unocss/preset-icons'
 import presetAttributify from '@unocss/preset-attributify'
 import presetTypography from '@unocss/preset-typography'
+import sitemap from '@astrojs/sitemap'
+
+// https://astro.build/config
 export default defineConfig({
+  site: 'https://blog.reajason.eu.org',
   integrations: [
     Unocss({
       presets: [
@@ -16,5 +20,6 @@ export default defineConfig({
         }),
       ],
     }),
+    sitemap(),
   ],
 })
