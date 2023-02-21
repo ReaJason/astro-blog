@@ -1,0 +1,40 @@
+---
+import TitleBar from '@components/TitleBar.astro'
+import { getCollection } from 'astro:content'
+import Layout from 'src/layouts/Layout.astro'
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog')
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
+}
+const { entry } = Astro.props
+const { Content } = await entry.render()
+---
+
+<Layout title={entry.data.title}>
+  <div class="flex flex-1">
+    <div class="flex w-full">
+      <article
+        class="relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black"
+      >
+        <TitleBar globalMenu="false" detailPage="true" />
+        <div class="mx-auto w-full max-w-3xl px-4 py-12 pb-10 md:px-8">
+          <div class="space-y-3">
+            <h1 class="text-primary font-sans text-2xl font-bold xl:text-3xl">
+              {entry.data.title}
+            </h1>
+            <span class="text-truegray inline-block leading-snug">
+              {entry.data.date.toLocaleString()}
+            </span>
+          </div>
+          <div class="prose mt-8">
+            <Content />
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</Layout>

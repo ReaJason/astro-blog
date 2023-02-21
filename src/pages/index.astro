@@ -1,6 +1,10 @@
 ---
 import TitleBar from '@components/TitleBar.astro'
+import { getEntryBySlug } from 'astro:content'
 import Layout from '../layouts/Layout.astro'
+
+const about = await getEntryBySlug('about', 'index')
+const { Content } = await about.render()
 ---
 
 <Layout title="Welcome to Astro.">
@@ -20,7 +24,7 @@ import Layout from '../layouts/Layout.astro'
               </h4>
               <div class="col-span-10">
                 <div class="prose text-primary">
-                  Hi, I'm ReaJason. I'm a software developer.
+                  <Content />
                 </div>
               </div>
             </div>

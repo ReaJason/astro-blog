@@ -9,7 +9,6 @@ const { title, globalMenu = true, detailPage } = Astro.props
     container.addEventListener('scroll', () => {
       const calcu = container.scrollTop / 200
       const shadowOpacity = calcu > 0.12 ? 0.12 : calcu
-      console.log(shadowOpacity)
       const style = `
         background: rgba(255,255,255,${
           shadowOpacity === 0 ? shadowOpacity : shadowOpacity + 0.8
@@ -17,10 +16,16 @@ const { title, globalMenu = true, detailPage } = Astro.props
           box-shadow: 0 1px 3px rgba(0,0,0,${shadowOpacity});
           min-height: 48px;
       `
-      console.log(header)
       header.setAttribute('style', style)
     })
   })
+
+  const backBtn = document.querySelector('.back-btn')
+  if (backBtn) {
+    backBtn.addEventListener('click', () => {
+      window.history.back()
+    })
+  }
 </script>
 
 <header
@@ -39,7 +44,7 @@ const { title, globalMenu = true, detailPage } = Astro.props
 
       {
         detailPage && (
-          <span class="flex items-center justify-center p-2 rounded-md text-primary hover:bg-gray-200 dark:hover:bg-gray-800 lg:hidden">
+          <span class="back-btn flex items-center justify-center p-2 rounded-md text-primary hover:bg-gray-200 dark:hover:bg-gray-800">
             <div class="i-carbon-arrow-left" />
           </span>
         )

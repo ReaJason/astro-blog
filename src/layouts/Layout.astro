@@ -18,21 +18,21 @@ const { title } = Astro.props
     <title>{title}</title>
   </head>
   <body>
-    <div
-      style="
-		position: fixed;
-		z-index: 9999;
-		top: 16px;
-		left: 16px;
-		right: 16px;
-		bottom: 16px;
-		pointer-events: none;
-	"
-    >
-    </div>
+    <div class="back-mask"></div>
     <div class="relative flex h-full min-h-screen w-full">
       <SideBar />
       <slot />
     </div>
   </body>
 </html>
+<style>
+  .back-mask {
+    position: fixed;
+    z-index: 9999;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    pointer-events: none;
+  }
+</style>

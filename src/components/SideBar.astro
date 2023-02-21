@@ -11,6 +11,26 @@ const openClass = false
 const overlayClass = false
   ? 'pointer-events-auto opacity-100'
   : 'pointer-events-none opacity-0'
+
+const getActiveLink = () => {
+  const links = navigations.flatMap((navigationGroup) =>
+    navigationGroup.items.flatMap((link) => link.href)
+  )
+  let activeLink = ''
+  links.forEach((link) => {
+    const path = curPath.split('#')[0]
+    if (!activeLink && link === path) {
+      activeLink = link
+    }
+
+    if (!activeLink && link.includes(curPath.split('/')[1])) {
+      activeLink = link
+    }
+  })
+  return activeLink
+}
+
+const activeLink = getActiveLink()
 ---
 
 <nav
@@ -35,7 +55,7 @@ const overlayClass = false
                   rel={link?.externalLink ? 'noopener noreferrer' : undefined}
                   class={
                     'flex flex-1 items-center space-x-3 rounded-md px-2 py-1.5 text-sm font-medium ' +
-                    (curPath === link.href.split('#')[0]
+                    (link.href === activeLink
                       ? 'bg-black text-white hover:bg-black hover:text-white dark:bg-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
                       : 'text-gray-700 dark:text-gray-200 sm:hover:bg-gray-200 sm:hover:text-gray-900 sm:dark:hover:bg-gray-700 sm:dark:hover:text-gray-200')
                   }

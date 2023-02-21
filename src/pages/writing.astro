@@ -1,6 +1,34 @@
 ---
+import PostCard from '@components/PostCard.astro'
 import TitleBar from '@components/TitleBar.astro'
 import Layout from 'src/layouts/Layout.astro'
+import { sortedPost } from 'src/utils'
+
+const blogEntries = await sortedPost()
 ---
 
-<Layout title="Writing">文章页</Layout>
+<Layout title="Writing">
+  <main
+    class="relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black"
+  >
+    <TitleBar title="Writing" />
+    <div class="mx-auto w-full px-4 py-12 pb-10 md:px-8">
+      <ol
+        class="grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1"
+      >
+        {
+          blogEntries.map((blog) => (
+            <li class="px-3">
+              <PostCard
+                title={blog.data.title}
+                date={blog.data.date}
+                desc={blog.data.description}
+                href={'/writing/' + blog.slug}
+              />
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </main>
+</Layout>
