@@ -8,12 +8,6 @@ const url = Astro.url
 <meta charset="UTF-8" />
 <meta name="generator" content={Astro.generator} />
 <link rel="icon" type="image/png" href={avatar} />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content={avatar} />
-<meta name="twitter:site" content={Astro.site} />
-<meta name="twitter:title" content={title} />
-<meta name="twitter:creator" content={twitter} />
-<meta property="twitter:description" content={description} />
 
 <meta name="keywords" content={keywords} />
 <meta name="author" content={author} />
@@ -24,4 +18,11 @@ const url = Astro.url
 <meta property="og:url" content={url} />
 <meta property="og:site_name" content={author} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={author} />
+<meta property="og:image" content={avatar} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content={avatar} />
+<meta name="twitter:site" content={Astro.site} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:creator" content={twitter} />
+<meta property="twitter:description" content={description} />
