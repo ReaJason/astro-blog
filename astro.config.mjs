@@ -19,6 +19,9 @@ export default defineConfig({
           scale: 1.2,
         }),
       ],
+      rules: [
+        ['filter-blur', { 'backdrop-filter': 'saturate(180%) blur(20px)' }],
+      ],
     }),
     sitemap(),
   ],
