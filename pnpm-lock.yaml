@@ -12,12 +12,14 @@ specifiers:
   '@unocss/preset-uno': ^0.49.7
   '@unocss/reset': ^0.49.7
   astro: ^2.0.11
+  nanostores: ^0.7.4
   unocss: ^0.49.7
   vite: ^4.1.2
 
 dependencies:
   '@astrojs/sitemap': 1.0.1
   astro: 2.0.14
+  nanostores: 0.7.4
   vite: 4.1.2
 
 devDependencies:
@@ -2382,6 +2384,11 @@ packages:
     resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+
+  /nanostores/0.7.4:
+    resolution: {integrity: sha512-MBeUVt7NBcXqh7AGT+KSr3O0X/995CZsvcP2QEMP+PXFwb07qv3Vjyq+EX0yS8f12Vv3Tn2g/BvK/OZoMhJlOQ==}
+    engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
+    dev: false
 
   /nlcst-to-string/3.1.1:
     resolution: {integrity: sha512-63mVyqaqt0cmn2VcI2aH6kxe1rLAmSROqHMA0i4qqg1tidkfExgpb0FGMikMCn86mw5dFtBtEANfmSSK7TjNHw==}

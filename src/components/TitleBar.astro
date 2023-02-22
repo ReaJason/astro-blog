@@ -1,8 +1,10 @@
 ---
-const { title, globalMenu = true, detailPage } = Astro.props
+const { title, detailPage } = Astro.props
 ---
 
 <script>
+  import { openNavBar, closeNavBar } from 'src/utils'
+
   const headers = document.querySelectorAll('header.title-header')
   headers.forEach((header) => {
     const container = header.parentElement!
@@ -20,8 +22,21 @@ const { title, globalMenu = true, detailPage } = Astro.props
     })
   })
 
-  const backBtn = document.querySelector('.back-btn')
+  const menuBtns = document.querySelectorAll('.menu-btn')
+  if (menuBtns) {
+    menuBtns.forEach((menuBtn) => {
+      const [menuIcon, closeIcon] = menuBtn.children
+      menuIcon.addEventListener('click', openNavBar)
+      closeIcon.addEventListener('click', closeNavBar)
+    })
+  }
+
+  const backBtn = document.querySelector('#backBtn')
   if (backBtn) {
+    menuBtns.forEach((menuBtn) => {
+      menuBtn.children[0].classList.add('hidden')
+    })
+
     backBtn.addEventListener('click', () => {
       window.history.back()
     })
@@ -35,16 +50,20 @@ const { title, globalMenu = true, detailPage } = Astro.props
   <div class="flex items-center justify-between flex-none">
     <span class="flex items-center space-x-3">
       {
-        globalMenu && (
-          <span class="flex items-center justify-center p-2 rounded-md cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 lg:hidden">
+        !detailPage && (
+          <span class="menu-btn flex items-center justify-center p-2 rounded-md cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 lg:hidden">
             <div class="i-carbon-menu" />
+            <div class="i-carbon-close hidden" />
           </span>
         )
       }
 
       {
         detailPage && (
-          <span class="back-btn flex items-center justify-center p-2 rounded-md text-primary hover:bg-gray-200 dark:hover:bg-gray-800">
+          <span
+            id="backBtn"
+            class=" flex items-center justify-center p-2 rounded-md text-primary hover:bg-gray-200 dark:hover:bg-gray-800"
+          >
             <div class="i-carbon-arrow-left" />
           </span>
         )
