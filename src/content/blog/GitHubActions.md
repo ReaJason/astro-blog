@@ -1,40 +1,41 @@
 ---
 title: GitHubActions
-date: "2022-11-21 14:12:03"
+date: '2022-11-21 14:12:03'
 tags: [Notes]
 categories: [GitHub]
 index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/GitHubActions_index_img.jpg
-description: "记录一下 GitHub Actions 的简单使用，强大得很"
+description: '记录一下 GitHub Actions 的简单使用，强大得很'
 ---
+
 ## 概述
 
 GitHub Actions 是一种持续集成和持续交付 (CI/CD) 平台，可用于自动执行生成、测试和部署管道。我的理解，为 GitHub 项目进行自动化操作的工具，提供一个 Linux 系统对我们的代码进行运行、构建、发布等等。工作流在仓库的 `.github/workflows` 下面定义，文件名为 `*.yml`，每一个 `yml` 文件一个工作流程。下面实例为一个简单的定时运行项目根路径下 `index.py` 文件的实例：
 
-```yml
+```yaml
 # 这是完美校园打卡项目最初用 GitHub Actions 定时进行打卡的一个工作流程
-name: 17wanxiaoCheckin  # 工作流的名字
+name: 17wanxiaoCheckin # 工作流的名字
 
 on:
-   push:
-    branches: [ master ] # 当往 master 上 push 代码的时候会触发当前工作流
-   schedule:
-    - cron: 0 22 * * *  # cron 表达式，每天 22:00 运行当前工作流
+  push:
+    branches: [master] # 当往 master 上 push 代码的时候会触发当前工作流
+  schedule:
+    - cron: 0 22 * * * # cron 表达式，每天 22:00 运行当前工作流
 
 jobs:
   build: # 当前 job 的名称
-    runs-on: ubuntu-latest  # 指定当前运行环境
+    runs-on: ubuntu-latest # 指定当前运行环境
 
     steps:
-    - uses: actions/checkout@v2 # 检索出当前代码，即 clone 仓库代码到当前工作目录下
+      - uses: actions/checkout@v2 # 检索出当前代码，即 clone 仓库代码到当前工作目录下
 
-    - name: Pip
-      run: pip3 install requests pycryptodome # 安装所需依赖
+      - name: Pip
+        run: pip3 install requests pycryptodome # 安装所需依赖
 
-    - name: HealthyCheckIn
-      run: python3 index.py # 运行脚本
+      - name: HealthyCheckIn
+        run: python3 index.py # 运行脚本
 ```
 
-```yml
+```yaml
 # 当前工作流会生成三个 job 分别构建 python3.6、3.7、3.9 的包并上传到 Actions 下的构件列表，可供下载
 name: auto-build
 
@@ -46,25 +47,25 @@ jobs:
   build:
     strategy:
       matrix:
-        python-version: [ "3.6", "3.7", "3.9"]
+        python-version: ['3.6', '3.7', '3.9']
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - uses: actions/setup-python@v4  # 安装 Python 环境
+      - uses: actions/setup-python@v4 # 安装 Python 环境
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Pip Install  # 安装所需依赖
-        run:  |
+      - name: Pip Install # 安装所需依赖
+        run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt -t .
 
-      - name: Upload a Build Artifact  # 上传构件
+      - name: Upload a Build Artifact # 上传构件
         uses: actions/upload-artifact@v3.1.1
         with:
-            name: 17wanxiaoCheckin-CF.py${{ matrix.python-version }}
-            path: ./
+          name: 17wanxiaoCheckin-CF.py${{ matrix.python-version }}
+          path: ./
 ```
 
 ## 常用语法
@@ -83,7 +84,7 @@ jobs:
 
 - `needs`，确定 jobs 间的依赖，以下为确保顺序为 job1,job2,job3
 
-  ```yml
+  ```yaml
   jobs:
     job1:
     job2:
@@ -116,14 +117,14 @@ jobs:
 - `run`：默认在所选操作系统内运行命令行
 - `working-directory`：可指定当前 `run` 后的命令所运行的工作目录
 - `sehll`：设置 `run` 所处的环境
-- `with`：设置 `uses` 指定的 `action` 所使用的输入参数 
+- `with`：设置 `uses` 指定的 `action` 所使用的输入参数
 - `env`：当前步骤所使用的环境变量
 
 ### matrix
 
 定义矩阵策略进行多维度自动化。[参考文档](https://docs.github.com/cn/actions/using-jobs/using-a-matrix-for-your-jobs)
 
-```yml
+```yaml
 jobs:
   example_matrix: # 这个名字是 job id
     strategy:
@@ -134,7 +135,7 @@ jobs:
 
 当前策略会以不同版本和操作系统执行 6 次任务，默认情况下，GitHub 将根据运行器的可用性将并行运行的作业数最大化，矩阵在每次工作流运行时最多将生成 256 个作业。可以使用 `matrix.version` 和 `matrix.os` 来访问作业正在使用的 `version` 和 `os` 的当前值。
 
-```yml
+```yaml
 jobs:
   example_matrix:
     strategy:
@@ -148,8 +149,6 @@ jobs:
         with:
           node-version: ${{ matrix.version }}
 ```
-
-
 
 ### badge
 
@@ -169,4 +168,3 @@ jobs:
 
 - [GitHub Actions 官方文档](https://docs.github.com/cn/actions)
 - [GitHub Actions 入门教程 —— 阮一峰](https://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
-
