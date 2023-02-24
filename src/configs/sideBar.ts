@@ -50,9 +50,9 @@ export const navigations: NavigationGroup[] = [
     label: 'Projects',
     items: [
       {
-        label: 'VueSSGBlog',
-        href: 'https://github.com/ReaJason/vue-ssg-blog',
-        iconClass: 'i-carbon-logo-vue',
+        label: 'AstroBlog',
+        href: 'https://github.com/ReaJason/astro-blog',
+        iconClass: 'i-simple-icons-astro',
         externalLink: true,
       },
       {

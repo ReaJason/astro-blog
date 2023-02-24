@@ -1,7 +1,17 @@
 ---
+import SideList from '@components/SideList.astro'
 import TitleBar from '@components/TitleBar.astro'
 import { getCollection } from 'astro:content'
 import Layout from 'src/layouts/Layout.astro'
+import { sortedPost } from 'src/utils'
+
+const blogs = await sortedPost()
+const listItems = blogs.map((blog) => ({
+  title: blog.data.title,
+  date: blog.data.date.toLocaleString(),
+  href: '/writing/' + blog.slug,
+  top: !!blog.data.sticky,
+}))
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog')
@@ -17,10 +27,11 @@ const { Content } = await entry.render()
 <Layout title={entry.data.title}>
   <div class="flex flex-1">
     <div class="flex w-full">
+      <SideList listItems={listItems} title="Writing" />
       <article
         class="relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black"
       >
-        <TitleBar detailPage="true" />
+        <TitleBar detailPage="true" backHref="/writing" />
         <div class="mx-auto w-full max-w-3xl px-4 py-12 pb-10 md:px-8">
           <div class="space-y-3">
             <h1 class="text-primary font-sans text-2xl font-bold xl:text-3xl">

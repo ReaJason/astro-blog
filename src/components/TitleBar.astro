@@ -1,5 +1,5 @@
 ---
-const { title, detailPage } = Astro.props
+const { title, detailPage, backHref } = Astro.props
 ---
 
 <script>
@@ -8,7 +8,8 @@ const { title, detailPage } = Astro.props
   const headers = document.querySelectorAll('header.title-header')
   headers.forEach((header) => {
     const container = header.parentElement!
-    container.addEventListener('scroll', () => {
+
+    const refreshHeaderStyle = () => {
       const calcu = container.scrollTop / 200
       const shadowOpacity = calcu > 0.12 ? 0.12 : calcu
       const style = `
@@ -19,7 +20,10 @@ const { title, detailPage } = Astro.props
           min-height: 48px;
       `
       header.setAttribute('style', style)
-    })
+    }
+
+    container.addEventListener('scroll', refreshHeaderStyle)
+    refreshHeaderStyle()
   })
 
   const menuBtns = document.querySelectorAll('.menu-btn')
@@ -28,17 +32,6 @@ const { title, detailPage } = Astro.props
       const [menuIcon, closeIcon] = menuBtn.children
       menuIcon.addEventListener('click', openNavBar)
       closeIcon.addEventListener('click', closeNavBar)
-    })
-  }
-
-  const backBtn = document.querySelector('#backBtn')
-  if (backBtn) {
-    menuBtns.forEach((menuBtn) => {
-      menuBtn.children[0].classList.add('hidden')
-    })
-
-    backBtn.addEventListener('click', () => {
-      window.history.back()
     })
   }
 </script>
@@ -60,12 +53,13 @@ const { title, detailPage } = Astro.props
 
       {
         detailPage && (
-          <span
+          <a
             id="backBtn"
+            href={backHref}
             class=" flex items-center justify-center p-2 rounded-md text-primary hover:bg-gray-200 dark:hover:bg-gray-800"
           >
             <div class="i-carbon-arrow-left" />
-          </span>
+          </a>
         )
       }
 

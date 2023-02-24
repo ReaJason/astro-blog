@@ -1,0 +1,80 @@
+---
+import TitleBar from './TitleBar.astro'
+
+const { title, listItems } = Astro.props
+
+const curPage = new URL(Astro.url).pathname
+---
+
+<script>
+  const pathName = new URL(document.location.href).pathname
+  const link = document.querySelector(`a[href='${pathName}']`)
+  if (link) {
+    console.log(link)
+    link.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+      inline: 'nearest',
+    })
+  }
+</script>
+
+<section class="hidden lg:flex">
+  <div
+    class="scroll-smooth relative h-full max-h-screen min-h-screen w-full flex-none overflow-y-auto border-r border-gray-150 bg-white dark:border-gray-800 dark:bg-gray-900 lg:w-80 lg:bg-gray-50 lg:dark:bg-gray-900 xl:w-96"
+  >
+    <TitleBar title={title} />
+    <div class="lg:space-y-1 lg:p-3">
+      {
+        listItems.map((item: any) => (
+          <a
+            class={
+              'flex justify-between space-x-3 border-b border-gray-100 py-3 px-3.5 text-sm dark:border-gray-900 lg:rounded-lg lg:border-none lg:py-2 ' +
+              (item.href === curPage
+                ? 'bg-black dark:bg-gray-700'
+                : 'sm:hover:bg-gray-200 sm:dark:hover:bg-gray-800')
+            }
+            href={item.href}
+          >
+            <div class="flex flex-col justify-center space-y-1">
+              <>
+                <div
+                  class={
+                    'font-medium line-clamp-3 ' +
+                    (curPage === item.href
+                      ? 'text-white'
+                      : 'text-gray-1000 dark:text-gray-100')
+                  }
+                >
+                  {item.title}
+                </div>
+                <div
+                  class={
+                    'line-clamp-1 ' +
+                    (curPage === item.href
+                      ? 'text-white text-opacity-60'
+                      : 'text-gray-900 text-opacity-40 dark:text-white dark:text-opacity-60')
+                  }
+                >
+                  {item.date}
+                </div>
+              </>
+            </div>
+            {item.top && (
+              <div
+                class={
+                  'flex flex-col justify-center font-bold line-clamp-3 ' +
+                  (curPage === item.href
+                    ? 'text-white'
+                    : 'text-gray-900 dark:text-gray-100')
+                }
+              >
+                <div class="i-carbon-up-to-top" />
+              </div>
+            )}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>
