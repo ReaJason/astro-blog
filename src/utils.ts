@@ -2,7 +2,8 @@ import { getCollection } from 'astro:content'
 
 export const sortedPost = async () => {
   const blogs = await getCollection("blog");
-  return blogs.filter(blog => !blog.data.draft || !blog.data.hide)
+  return blogs.filter(blog => !blog.data.draft)
+  .filter(blog => !blog.data.hide)
   .sort((a,b) => {
     if(a.data?.sticky === b.data?.sticky){
         return a.data?.date > b.data?.date ? -1 : 1
