@@ -7,28 +7,28 @@ index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/2023AnnualWishes_index
 description: '慢慢成长🌟'
 ---
 
-## 想学
+## Aspirations
 
-- [ ] 想学计算机操作系统
-- [ ] 想重学数据结构与算法，用 Java 把数据结构全部实现一遍
-- [ ] 想学 [Rust](https://www.rust-lang.org/)
-- [ ] 想学英语、日语
-- [ ] 想学 [Unity](https://unity.com/)
-- [ ] 想了解 [Clojure](https://clojure.org/)
+- [ ] I aspire to learn about computer operating systems
+- [ ] I am eager to refresh my knowledge of data structures and algorithms, and proficiently implement them in Java
+- [ ] I aspire to acquire knowledge in [Rust programming language ](https://www.rust-lang.org/)
+- [ ] I long to learn both English and Japanese languages
+- [ ] I wish to explore [Unity game engine ](https://unity.com/)
+- [ ] I am interested in exploring [Clojure programming language](https://clojure.org/)
 
-## 想做
+## Ambitions
 
-- [ ] 想去更优秀的团队，学习更优秀的技术
-- [ ] 想再去一次环球影城，玩玩过山车
-- [ ] 想使用 SpringBoot 基于微软 RESTFul 指南开发一个 stater
-- [ ] 想写更多的博客，向外输出所学所感
-- [ ] 想有一个自己的播客，锻炼一下说话的能力
-- [ ] 想拥有 reajason.com 域名
-- [ ] 想多看看外面的世界，两点一线的工作就是 bullshit
+- [ ] I aspire to join a superior team and learn cutting-edge technologies.
+- [ ]  I desire to revisit Universal Studios again, and enjoy some thrilling rollercoaster rides.
+- [ ] I wish to develop a stater using SpringBoot based on Microsoft RESTFul guidelines.
+- [ ] I aspire to write more blogs, and share my learning and experiences.
+- [ ] I desire to have my own podcast, and improve my speaking skills.
+- [ ] I wish to own the domain name reajason.com.
+- [ ] I long to explore the world, and not confine myself to a mundane job.
 
-## 突破
+## Breakthroughs
 
-- [ ] 希望自己工作上能更主动和同事沟通
-- [ ] 希望自己能发现问题时，能向上级汇报并给出自己的见解帮助解决问题
-- [ ] 希望自己不要老是看书，看视频而不输出，只有实践才能更加掌握所学的东西
-- [ ] 希望自己更好地认识自己，找准人生的定位
+- [ ] I hope to improve my communication skills with colleagues, and take a more proactive approach in my work.
+- [ ] I aspire to report problems to my superiors, and provide my own insights to help solve problems.
+- [ ] I aspire to not only acquire knowledge from books and videos but also to put it into practice through practical projects.
+- [ ] I wish to gain a deeper understanding of myself and discover my true purpose in life.
