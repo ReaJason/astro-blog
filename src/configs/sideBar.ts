@@ -1,5 +1,5 @@
 // @unocss-include
-import type { NavigationGroup } from "src/types/sideBar";
+import type { NavigationGroup } from 'src/types/sideBar'
 
 export const navigations: NavigationGroup[] = [
   {
@@ -7,7 +7,7 @@ export const navigations: NavigationGroup[] = [
       {
         label: 'Home',
         href: '/',
-        iconClass: 'i-fa-solid-bolt'
+        iconClass: 'i-fa-solid-bolt',
       },
       {
         label: 'Writing',
@@ -74,7 +74,7 @@ export const navigations: NavigationGroup[] = [
       },
       {
         label: 'Twitter',
-        href: 'https://twitter.com/LingSiKi',
+        href: 'https://twitter.com/ReaJason_',
         iconClass: 'i-simple-icons-twitter',
         externalLink: true,
       },
