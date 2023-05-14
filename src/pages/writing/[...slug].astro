@@ -1,27 +1,27 @@
 ---
-import SideList from '@components/SideList.astro'
-import TitleBar from '@components/TitleBar.astro'
-import { getCollection } from 'astro:content'
-import Layout from 'src/layouts/Layout.astro'
-import { sortedPost } from 'src/utils'
+import SideList from "@components/SideList.astro";
+import TitleBar from "@components/TitleBar.astro";
+import { getCollection } from "astro:content";
+import Layout from "src/layouts/Layout.astro";
+import { sortedPost } from "src/utils";
 
-const blogs = await sortedPost()
+const blogs = await sortedPost();
 const listItems = blogs.map((blog) => ({
   title: blog.data.title,
-  date: blog.data.date.toLocaleString(),
-  href: '/writing/' + blog.slug,
+  date: blog.data.date.toLocaleDateString(),
+  href: "/writing/" + blog.slug,
   top: !!blog.data.sticky,
-}))
+}));
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog')
+  const blogEntries = await getCollection("blog");
   return blogEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
-  }))
+  }));
 }
-const { entry } = Astro.props
-const { Content } = await entry.render()
+const { entry } = Astro.props;
+const { Content } = await entry.render();
 ---
 
 <Layout title={entry.data.title}>

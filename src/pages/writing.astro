@@ -1,10 +1,10 @@
 ---
-import PostCard from '@components/PostCard.astro'
-import TitleBar from '@components/TitleBar.astro'
-import Layout from 'src/layouts/Layout.astro'
-import { sortedPost } from 'src/utils'
+import PostCard from "@components/PostCard.astro";
+import TitleBar from "@components/TitleBar.astro";
+import Layout from "src/layouts/Layout.astro";
+import { sortedPost } from "src/utils";
 
-const blogEntries = await sortedPost()
+const blogEntries = await sortedPost();
 ---
 
 <Layout title="Writing">
@@ -21,9 +21,9 @@ const blogEntries = await sortedPost()
             <li class="px-3">
               <PostCard
                 title={blog.data.title}
-                date={blog.data.date}
+                date={blog.data.date.toLocaleDateString()}
                 desc={blog.data.description}
-                href={'/writing/' + blog.slug}
+                href={"/writing/" + blog.slug}
               />
             </li>
           ))
