@@ -11,6 +11,7 @@ export default defineConfig({
   site: 'https://blog.reajason.eu.org',
   integrations: [
     Unocss({
+      injectReset: true,
       presets: [
         presetUno(),
         presetAttributify(),
