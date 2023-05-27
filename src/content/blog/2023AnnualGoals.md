@@ -14,12 +14,12 @@ description: '慢慢成长🌟'
 - [ ] I aspire to acquire knowledge in [Rust programming language ](https://www.rust-lang.org/)
 - [ ] I long to learn both English and Japanese languages
 - [ ] I wish to explore [Unity game engine ](https://unity.com/)
-- [ ] I am interested in exploring [Clojure programming language](https://clojure.org/)
+- [ ] I am interested in exploring [Clojure programming language](https://clojure.org/)nr
 
 ## Ambitions
 
-- [ ] I aspire to join a superior team and learn cutting-edge technologies.
-- [ ]  I desire to revisit Universal Studios again, and enjoy some thrilling rollercoaster rides.
+- [x] I aspire to join a superior team and learn cutting-edge technologies.
+- [ ] I desire to revisit Universal Studios again, and enjoy some thrilling rollercoaster rides.
 - [ ] I wish to develop a stater using SpringBoot based on Microsoft RESTFul guidelines.
 - [ ] I aspire to write more blogs, and share my learning and experiences.
 - [ ] I desire to have my own podcast, and improve my speaking skills.
