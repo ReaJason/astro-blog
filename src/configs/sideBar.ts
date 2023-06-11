@@ -79,6 +79,12 @@ export const navigations: NavigationGroup[] = [
         externalLink: true,
       },
       {
+        label: 'Youtube',
+        href: 'https://www.youtube.com/channel/UCwwMvqVrkQqJr1ILy9Ky8WQ',
+        iconClass: 'i-simple-icons-youtube',
+        externalLink: true,
+      },
+      {
         label: 'Telegram',
         href: 'https://t.me/ReaJason',
         iconClass: 'i-simple-icons-telegram',
