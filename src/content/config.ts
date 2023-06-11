@@ -15,4 +15,12 @@ const blog = defineCollection({
 
 const about = defineCollection({})
 
-export const collections = { blog, about };
+const note = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    type: z.string(),
+    date: z.string().transform(str => new Date(str))
+  })
+})
+
+export const collections = { blog, about, note };

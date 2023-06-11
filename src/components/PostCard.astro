@@ -1,5 +1,6 @@
 ---
-const { title, date, desc, href } = Astro.props
+import { dateToString } from "src/utils";
+const { title, date, desc, href } = Astro.props;
 ---
 
 <div
@@ -10,9 +11,9 @@ const { title, date, desc, href } = Astro.props
   </div>
   <p
     class="text-sm mt-3 mb-0 color-gray-600 line-clamp-1"
-    set:html={desc ?? '&emsp;'}
+    set:html={desc ?? "&emsp;"}
   />
   <p class="text-sm hyphens-auto mt-2 mb-0 break-all color-gray-600">
-    {date.toLocaleString()}
+    {date}
   </p>
 </div>
