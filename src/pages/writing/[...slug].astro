@@ -3,12 +3,12 @@ import SideList from "@components/SideList.astro";
 import TitleBar from "@components/TitleBar.astro";
 import { getCollection } from "astro:content";
 import Layout from "src/layouts/Layout.astro";
-import { sortedPost } from "src/utils";
+import { dateToString, sortedPost } from "src/utils";
 
 const blogs = await sortedPost();
 const listItems = blogs.map((blog) => ({
   title: blog.data.title,
-  date: blog.data.date.toLocaleDateString(),
+  date: dateToString(blog.data.date),
   href: "/writing/" + blog.slug,
   top: !!blog.data.sticky,
 }));
@@ -38,7 +38,7 @@ const { Content } = await entry.render();
               {entry.data.title}
             </h1>
             <span class="text-truegray inline-block leading-snug">
-              {entry.data.date.toLocaleString()}
+              {dateToString(entry.data.date)}
             </span>
           </div>
           <div class="prose mt-8">

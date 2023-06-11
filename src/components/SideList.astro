@@ -1,19 +1,19 @@
 ---
-import TitleBar from './TitleBar.astro'
-const { title, listItems } = Astro.props
+import TitleBar from "./TitleBar.astro";
+const { title, listItems } = Astro.props;
 
-const curPage = new URL(Astro.url).pathname
+const curPage = new URL(Astro.url).pathname;
 ---
 
 <script>
-  const pathName = new URL(document.location.href).pathname
-  const link = document.querySelector(`a[href='${pathName}']`)
+  const pathName = new URL(document.location.href).pathname;
+  const link = document.querySelector(`a[href='${pathName}']`);
   if (link) {
     link.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center',
-      inline: 'nearest',
-    })
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
   }
 </script>
 
@@ -27,10 +27,10 @@ const curPage = new URL(Astro.url).pathname
         listItems.map((item: any) => (
           <a
             class={
-              'flex justify-between space-x-3 border-b border-gray-100 py-3 px-3.5 text-sm dark:border-gray-900 lg:rounded-lg lg:border-none lg:py-2 ' +
+              "flex justify-between space-x-3 border-b border-gray-100 py-3 px-3.5 text-sm dark:border-gray-900 lg:rounded-lg lg:border-none lg:py-2 " +
               (curPage.includes(item.href)
-                ? 'bg-black dark:bg-gray-700'
-                : 'sm:hover:bg-gray-200 sm:dark:hover:bg-gray-800')
+                ? "bg-black dark:bg-gray-700"
+                : "sm:hover:bg-gray-200 sm:dark:hover:bg-gray-800")
             }
             href={item.href}
           >
@@ -38,20 +38,20 @@ const curPage = new URL(Astro.url).pathname
               <>
                 <div
                   class={
-                    'font-medium line-clamp-3 ' +
+                    "font-medium line-clamp-3 " +
                     (curPage.includes(item.href)
-                      ? 'text-white'
-                      : 'text-gray-1000 dark:text-gray-100')
+                      ? "text-white"
+                      : "text-gray-1000 dark:text-gray-100")
                   }
                 >
                   {item.title}
                 </div>
                 <div
                   class={
-                    'line-clamp-1 ' +
+                    "line-clamp-1 " +
                     (curPage.includes(item.href)
-                      ? 'text-white text-opacity-60'
-                      : 'text-gray-900 text-opacity-40 dark:text-white dark:text-opacity-60')
+                      ? "text-white text-opacity-60"
+                      : "text-gray-900 text-opacity-40 dark:text-white dark:text-opacity-60")
                   }
                 >
                   {item.date}
@@ -61,10 +61,10 @@ const curPage = new URL(Astro.url).pathname
             {item.top && (
               <div
                 class={
-                  'flex flex-col justify-center font-bold line-clamp-3 ' +
+                  "flex flex-col justify-center font-bold line-clamp-3 " +
                   (curPage.includes(item.href)
-                    ? 'text-white'
-                    : 'text-gray-900 dark:text-gray-100')
+                    ? "text-white"
+                    : "text-gray-900 dark:text-gray-100")
                 }
               >
                 <div class="i-carbon-up-to-top" />

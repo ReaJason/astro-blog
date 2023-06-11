@@ -47,3 +47,9 @@ export const closeNavBar = () => {
   overlayer?.classList.replace('pointer-events-auto', 'pointer-events-none')
   overlayer?.classList.replace('opacity-100', 'opacity-0')
 }
+
+export const dateToString = (date: Date) => {
+  return `${date.getFullYear()}
+  -${(date.getMonth()+1).toString().padStart(2,'0')}
+  -${date.getDate().toString().padEnd(2,'0')}`
+}
