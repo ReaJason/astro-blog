@@ -8,7 +8,7 @@ import sitemap from '@astrojs/sitemap'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://blog.reajason.eu.org',
+  site: 'https://reajason.eu.org',
   integrations: [
     Unocss({
       injectReset: true,
