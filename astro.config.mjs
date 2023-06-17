@@ -26,4 +26,13 @@ export default defineConfig({
     }),
     sitemap(),
   ],
+  vite: {
+    build: {
+      rollupOptions: {
+        external: [
+          "rss.xml.js"
+      ]
+      }
+    }
+  }
 })
