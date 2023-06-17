@@ -19,6 +19,11 @@ export const navigations: NavigationGroup[] = [
         href: '/friends',
         iconClass: 'i-fa-solid-user-friends',
       },
+      {
+        label: "RSS",
+        href: "/rss.xml",
+        iconClass: "i-simple-icons-rss"
+      }
     ],
   },
   {
