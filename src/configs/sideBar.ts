@@ -22,7 +22,8 @@ export const navigations: NavigationGroup[] = [
       {
         label: "RSS",
         href: "/rss.xml",
-        iconClass: "i-simple-icons-rss"
+        iconClass: "i-simple-icons-rss",
+        externalLink: true
       }
     ],
   },

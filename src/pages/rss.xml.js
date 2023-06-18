@@ -1,5 +1,5 @@
 import rss from '@astrojs/rss';
-import sanitizeHtml from 'sanitize-html';
+import sanitizeHtml from 'sanitize-html'
 import MarkdownIt from 'markdown-it';
 import { sortedPost } from 'src/utils';
 const parser = new MarkdownIt();
