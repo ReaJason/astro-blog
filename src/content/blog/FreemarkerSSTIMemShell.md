@@ -191,7 +191,7 @@ curl --location 'http://localhost:8088/jeecg-boot/jmreport/queryFieldBySql' \
 3. 使用 [靖云甲 RASP](https://www.boundaryx.com/category/product/adr) 时刻保护应用安全，有效防护开源第三方库潜在的 0day 漏洞。
 
 ## 延伸阅读
-- [jeecg-boot / 积木报表基于 SSTI 的任意代码执行漏洞](https://www.oschina.net/news/254100)
+- [jeecg-boot/积木报表基于SSTI的任意代码执行漏洞](https://www.oscs1024.com/hd/MPS-4hzd-mb73)
 - [Server Side Template Injection](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection)
 - [Memoryshell-JavaALL](https://github.com/achuna33/Memoryshell-JavaALL)
 - [Godzilla](https://github.com/BeichenDream/Godzilla)
