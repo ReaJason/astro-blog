@@ -8,7 +8,7 @@ description: "CVE-2023-4450"
 ---
 > 当前文章所提供脚本，仅供学习使用，请勿使用到生产环境
 
-## TLDR
+## TL;DR
 在已知 [jeecg-boot](https://github.com/jeecgboot/jeecg-boot) 企业级开源项目存在 ssti 漏洞但不知道具体位置的情况下，通过搜索注入特征点找到了未授权即可访问的 web api 点，并通过自动生成内存马工具进行注入，实现对目标机器的控制，该漏洞属于 RCE 高危漏洞。
 
 ## 漏洞影响范围
