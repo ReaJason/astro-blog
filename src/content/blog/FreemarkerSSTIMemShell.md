@@ -4,7 +4,7 @@ date: "2023-08-23 23:59:00"
 index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/FirstTechnicalInterview_index_img.png
 tags: [Notes]
 categories: [Summary]
-description: "Freemarker SSTI RCE 到内存马"
+description: "CVE-2023-4450"
 ---
 > 当前文章所提供脚本，仅供学习使用，请勿使用到生产环境
 
@@ -12,7 +12,7 @@ description: "Freemarker SSTI RCE 到内存马"
 在已知 [jeecg-boot](https://github.com/jeecgboot/jeecg-boot) 企业级开源项目存在 ssti 漏洞但不知道具体位置的情况下，通过搜索注入特征点找到了未授权即可访问的 web api 点，并通过自动生成内存马工具进行注入，实现对目标机器的控制，该漏洞属于 RCE 高危漏洞。
 
 ## 漏洞影响范围
-> https://www.oschina.net/news/254100
+> https://nvd.nist.gov/vuln/detail/CVE-2023-4450
 - 集成了 [jimureport <= 1.6.0](http://jimureport.com/) 的系统，例  [jeecg-boot v3.5.3](https://github.com/jeecgboot/jeecg-boot/releases/tag/v3.5.3)
 
 ## 漏洞复现环境
