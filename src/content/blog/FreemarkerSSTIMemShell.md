@@ -1,5 +1,5 @@
 ---
-title: Freemarker 模板注入到内存马
+title: JeecgBoot 模板注入到内存马
 date: "2023-08-23 23:59:00"
 index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/FirstTechnicalInterview_index_img.png
 tags: [Notes]
