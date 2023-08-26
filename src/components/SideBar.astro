@@ -1,41 +1,41 @@
 ---
-import TitleBar from '@components/TitleBar.astro'
-import { navigations } from '../configs/sideBar'
-const curPath = new URL(Astro.request.url).pathname
+import TitleBar from "@components/TitleBar.astro";
+import { navigations } from "../configs/sideBar";
+const curPath = new URL(Astro.request.url).pathname;
 
 const getActiveLink = () => {
   const links = navigations.flatMap((navigationGroup) =>
     navigationGroup.items.flatMap((link) => link.href)
-  )
-  let activeLink = ''
+  );
+  let activeLink = "";
   links.forEach((link) => {
-    const path = curPath.split('#')[0]
+    const path = curPath.split("#")[0];
     if (!activeLink && link === path) {
-      activeLink = link
+      activeLink = link;
     }
 
-    if (!activeLink && link.includes(curPath.split('/')[1])) {
-      activeLink = link
+    if (!activeLink && link.includes(curPath.split("/")[1])) {
+      activeLink = link;
     }
-  })
-  return activeLink
-}
+  });
+  return activeLink;
+};
 
-const activeLink = getActiveLink()
+const activeLink = getActiveLink();
 ---
 
 <script>
-  import { closeNavBar } from 'src/utils'
+  import { closeNavBar } from "src/utils";
 
-  const overlayer = document.querySelector('#overlayer')
+  const overlayer = document.querySelector("#overlayer");
   if (overlayer) {
-    overlayer.addEventListener('click', closeNavBar)
+    overlayer.addEventListener("click", closeNavBar);
   }
 </script>
 
 <nav
   id="navBar"
-  class="absolute -translate-x-full 3xl:w-80 z-30 flex h-full max-h-screen min-h-screen w-3/4 flex-none transform flex-col overflow-y-auto border-r border-gray-150 bg-white pb-10 transition duration-200 ease-in-out dark:border-gray-800 dark:bg-gray-900 sm:w-1/2 sm:pb-0 md:w-1/3 lg:relative lg:z-auto lg:w-56 lg:translate-x-0 lg:bg-gray-50 lg:dark:bg-gray-900 2xl:w-72"
+  class="absolute -translate-x-full 3xl:w-72 z-30 flex h-full max-h-screen min-h-screen w-3/4 flex-none transform flex-col overflow-y-auto border-r border-gray-150 bg-white pb-10 transition duration-200 ease-in-out dark:border-gray-800 dark:bg-gray-900 sm:w-1/2 sm:pb-0 md:w-1/3 lg:relative lg:z-auto lg:w-56 lg:translate-x-0 lg:bg-gray-50 lg:dark:bg-gray-900 2xl:w-64"
 >
   <TitleBar title="ReaJason" />
   <main class="flex-1 px-3 py-3 space-y-1">
@@ -52,13 +52,13 @@ const activeLink = getActiveLink()
             {navigationGroup.items.map((link) => (
               <li class="flex items-stretch space-x-1">
                 <a
-                  target={link?.externalLink ? '_blank' : undefined}
-                  rel={link?.externalLink ? 'noopener noreferrer' : undefined}
+                  target={link?.externalLink ? "_blank" : undefined}
+                  rel={link?.externalLink ? "noopener noreferrer" : undefined}
                   class={
-                    'flex flex-1 items-center space-x-3 rounded-md px-2 py-1.5 text-sm font-medium ' +
+                    "flex flex-1 items-center space-x-3 rounded-md px-2 py-1.5 text-sm font-medium " +
                     (link.href === activeLink
-                      ? 'bg-black text-white hover:bg-black hover:text-white dark:bg-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
-                      : 'text-gray-700 dark:text-gray-200 sm:hover:bg-gray-200 sm:hover:text-gray-900 sm:dark:hover:bg-gray-700 sm:dark:hover:text-gray-200')
+                      ? "bg-black text-white hover:bg-black hover:text-white dark:bg-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
+                      : "text-gray-700 dark:text-gray-200 sm:hover:bg-gray-200 sm:hover:text-gray-900 sm:dark:hover:bg-gray-700 sm:dark:hover:text-gray-200")
                   }
                   href={link.href}
                 >
