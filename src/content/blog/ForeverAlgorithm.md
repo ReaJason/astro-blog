@@ -5,7 +5,6 @@ categories: [Java]
 index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/ForeverAlgorithm_index_img.jpg
 date: "2021-08-21 09:35:00"
 description: "使用 Java 编程语言编写数据结构与算法"
-sticky: 99
 ---
 ## 语言基础
 
