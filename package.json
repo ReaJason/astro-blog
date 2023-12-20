@@ -16,12 +16,12 @@
 		"astro": "^2.10.15",
 		"markdown-it": "^13.0.2",
 		"sanitize-html": "^2.11.0",
-		"vite": "^4.5.0"
+		"vite": "^4.5.1"
 	},
 	"devDependencies": {
-		"@iconify-json/carbon": "^1.1.21",
-		"@iconify-json/fa-solid": "^1.1.5",
-		"@iconify-json/simple-icons": "^1.1.79",
+		"@iconify-json/carbon": "^1.1.27",
+		"@iconify-json/fa-solid": "^1.1.8",
+		"@iconify-json/simple-icons": "^1.1.85",
 		"@unocss/astro": "^0.51.13",
 		"@unocss/preset-attributify": "^0.51.13",
 		"@unocss/preset-icons": "^0.51.13",

@@ -9,26 +9,26 @@ description: '慢慢成长🌟'
 
 ## Aspirations
 
-- [ ] I aspire to learn about computer operating systems
+- [x] I aspire to learn about computer operating systems
 - [ ] I am eager to refresh my knowledge of data structures and algorithms, and proficiently implement them in Java
-- [ ] I aspire to acquire knowledge in [Rust programming language ](https://www.rust-lang.org/)
-- [ ] I long to learn both English and Japanese languages
+- [x] I aspire to acquire knowledge in [Rust programming language ](https://www.rust-lang.org/)
+- [x] I long to learn both English and Japanese languages
 - [ ] I wish to explore [Unity game engine ](https://unity.com/)
-- [ ] I am interested in exploring [Clojure programming language](https://clojure.org/)nr
+- [ ] I am interested in exploring [Clojure programming language](https://clojure.org/)
 
 ## Ambitions
 
 - [x] I aspire to join a superior team and learn cutting-edge technologies.
 - [ ] I desire to revisit Universal Studios again, and enjoy some thrilling rollercoaster rides.
-- [ ] I wish to develop a stater using SpringBoot based on Microsoft RESTFul guidelines.
-- [ ] I aspire to write more blogs, and share my learning and experiences.
+- [ ] I wish to develop a starter using SpringBoot based on Microsoft RESTFul guidelines.
+- [x] I aspire to write more blogs, and share my learning and experiences.
 - [ ] I desire to have my own podcast, and improve my speaking skills.
 - [ ] I wish to own the domain name reajason.com.
-- [ ] I long to explore the world, and not confine myself to a mundane job.
+- [x] I long to explore the world, and not confine myself to a mundane job.
 
 ## Breakthroughs
 
-- [ ] I hope to improve my communication skills with colleagues, and take a more proactive approach in my work.
-- [ ] I aspire to report problems to my superiors, and provide my own insights to help solve problems.
-- [ ] I aspire to not only acquire knowledge from books and videos but also to put it into practice through practical projects.
-- [ ] I wish to gain a deeper understanding of myself and discover my true purpose in life.
+- [x] I hope to improve my communication skills with colleagues, and take a more proactive approach in my work.
+- [x] I aspire to report problems to my superiors, and provide my own insights to help solve problems.
+- [x] I aspire to not only acquire knowledge from books and videos but also to put it into practice through practical projects.
+- [x] I wish to gain a deeper understanding of myself and discover my true purpose in life.
