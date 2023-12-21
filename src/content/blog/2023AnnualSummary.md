@@ -35,7 +35,7 @@ sticky: 101
 
 ### 八卦环节
 
-不知从何时开始，每次打游戏都伴随着一阵猛烈的自我责备和贬低，让我开始对游戏失去了兴趣。因为觉得自己水平太差、表现太糟，玩游戏成了一种负担。偶尔上上号也是和老朋友叙叙旧，聊聊天的。
+不知从何时开始，每次打游戏都伴随着一阵猛烈的自我责备和贬低，让我开始对游戏失去了兴趣。因为觉得自己水平太差、表现太糟，玩游戏成了一种负担，不过还是间歇性想玩。偶尔上上号也是和老朋友叙叙旧，聊聊天。
 
 游戏对我来说一直是一种社交属性比较强的东西，小时候玩游戏就是为了和其他男生有共同话题能玩在一起，现在想起来简直就是社会认同心理在作祟。
 
@@ -66,16 +66,16 @@ sticky: 101
 
 练习打字是一直以来就想做的事情但是一直没有行动，逛大佬的博客才有了练打字的决心（目前的博客样式也是来自于他的 - GitHub 前设计师） - [Typing fast is a high-leverage skill](https://brianlovin.com/writing/type-faster)
 
-一定不要拼速度，而是拼正确性，慢慢来会很快！没有其他经验分享，跟着教程来即可。
+没有其他经验分享，跟着教程就好。
 
-![](/Users/reajason/Library/Application Support/CleanShot/media/media_NNVDosWwIn/CleanShot 2023-12-19 at 22.34.44@2x.png)
+![](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/2023AnnualSummary_img/typing.png)
 
 其他打字相关网站：
-1. https://qwerty.kaiyi.cool/ - 打字学英语
-2. https://www.keybr.com/ - 这个在学完整个键盘如何打字之后可用于练习
-3. https://play.typeracer.com/
-4. https://10fastfingers.com/
-5. https://www.typing.com/student/lessons - 这个网站也适合入门学习
+1. https://www.typing.com/student/lessons - 这个网站也适合入门学习 
+2. https://qwerty.kaiyi.cool/ - 打字学英语
+3. https://www.keybr.com/ - 这个在学完整个键盘如何打字之后可用于练习
+4. https://play.typeracer.com/
+5. https://10fastfingers.com/
 
 ### 写了开源项目
 > https://github.com/ReaJason/xhs
@@ -122,5 +122,5 @@ sticky: 101
 - 去了深圳，吃了潮悦牛肉火锅，吃了瑯西巷子南宁老友粉 (红山店)
 - 去了香港，去了尖沙咀码头看海景，体验了港珠澳大桥
 - 去了珠海，吃了新佳濠横琴生蚝火锅
-- 去了澳门，去了大三巴牌坊，在优衣库避暑顺便买了咒术回战联名短 T，体验到汇率带来的折扣，吃了 Ufufu cafe 蛋包饭，做了发财车，去了美高梅喝了免费的奶茶和小点心
+- 去了澳门，去了大三巴牌坊，在优衣库避暑顺便买了咒术回战联名短 T，体验到汇率带来的折扣，吃了 Ufufu cafe 蛋包饭，坐了发财车，去了美高梅喝了免费的奶茶和小点心
 - 去了长沙，吃了心心念念的林科大桥下螺蛳粉，买了吴酥生的绿豆糕，喝了茶颜悦色，喝了果呀呀，沿着江边骑了共享电驴，买了茶颜悦色的周边，吃了冇味湘潭菜
