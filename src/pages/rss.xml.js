@@ -23,7 +23,6 @@ export async function get(context) {
       title: post.data.title,
       pubDate: post.data.date,
     })),
-    customData: `<language>en-us</language>`,
-    stylesheet: '/rss/styles.xsl',
+    customData: `<language>en-us</language>`
   });
 }
