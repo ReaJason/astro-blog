@@ -23,7 +23,7 @@ description: '慢慢成长🌟'
 - [ ] I wish to develop a starter using SpringBoot based on Microsoft RESTFul guidelines.
 - [x] I aspire to write more blogs, and share my learning and experiences.
 - [ ] I desire to have my own podcast, and improve my speaking skills.
-- [ ] I wish to own the domain name reajason.com.
+- [x] I wish to own the domain name reajason.com.
 - [x] I long to explore the world, and not confine myself to a mundane job.
 
 ## Breakthroughs
