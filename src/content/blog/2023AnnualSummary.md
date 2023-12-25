@@ -1,6 +1,6 @@
 ---
 title: 2023 年度总结
-date: "2023-12-24 22:20:53"
+date: "2023-12-25 22:20:53"
 categories: [AnnualSummary]
 description: "在不断变化中摸索前进"
 index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/2023AnnualSummary_index_img.png
