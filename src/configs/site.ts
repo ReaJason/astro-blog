@@ -1,7 +1,7 @@
 export const siteConfig = {
   title: "ReaJason's Space",
   author: "ReaJason",
-  avatar: "https://avatars.githubusercontent.com/u/48389642",
+  avatar: "https://s.gravatar.com/avatar/5de6928d810a4b711580ff93fa1d409bfbc9cc4569fa6028b977f1bb6d39a850",
   description: "Keep Moving✨",
   keywords: "ReaJason,BLog,Java,JavaScript,Python,RASP,JVM,后端",
   twitter: "@ReaJason_",

@@ -24,7 +24,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<Layout title={entry.data.title}>
+<Layout title={entry.data.title} blogImg={entry.data.index_img}>
   <div class="flex flex-1">
     <div class="flex w-full">
       <SideList listItems={listItems} title="Writing" />

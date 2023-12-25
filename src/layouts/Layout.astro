@@ -4,15 +4,16 @@ import SideBar from "@components/SideBar.astro";
 
 export interface Props {
   title: string;
+  blogImg?: string;
 }
 
-const { title } = Astro.props;
+const { title, blogImg } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <HeadSEO title={title} />
+    <HeadSEO title={title} blogImg={blogImg} />
     <title>{title}</title>
   </head>
   <body>

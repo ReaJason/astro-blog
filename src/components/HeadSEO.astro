@@ -1,8 +1,9 @@
 ---
 import { siteConfig } from '../configs/site'
-const { title } = Astro.props
+const { title, blogImg } = Astro.props
 const { author, twitter, avatar, keywords, description } = siteConfig
 const url = Astro.url
+const image = blogImg ? blogImg : avatar
 ---
 
 <meta charset="UTF-8" />
@@ -19,10 +20,10 @@ const url = Astro.url
 <meta property="og:url" content={url} />
 <meta property="og:site_name" content={author} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={avatar} />
+<meta property="og:image" content={image} />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content={avatar} />
+<meta name="twitter:image" content={image} />
 <meta name="twitter:site" content={Astro.site} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:creator" content={twitter} />
