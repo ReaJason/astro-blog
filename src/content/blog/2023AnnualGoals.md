@@ -2,7 +2,6 @@
 title: 2023 新年愿望
 date: '2023-01-02 14:31:27'
 categories: [AnnualWishes]
-sticky: 100
 index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/2023AnnualWishes_index_img.png
 description: '慢慢成长🌟'
 ---

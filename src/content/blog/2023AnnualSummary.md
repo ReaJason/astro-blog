@@ -4,7 +4,7 @@ date: "2023-12-25 22:20:53"
 categories: [AnnualSummary]
 description: "在不断变化中摸索前进"
 index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/2023AnnualSummary_index_img.png
-sticky: 101
+sticky: 100
 ---
 
 > 改变，就是好事 —— 英雄联盟，卡兹克
@@ -34,14 +34,13 @@ sticky: 101
 
 由于这几个月都是自己做饭，中午独自用餐，上班时专注于工作，很少闲聊。基本上都在学习和写代码，不需要特别多的交流。有时候会感到一点点压抑。
 
-[![](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/2023AnnualSummary_img/twitter1.png)](https://x.com/ReaJason_/status/1682426745109217280)
-
+[![twitter](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/2023AnnualSummary_img/twitter1.png)](https://x.com/ReaJason_/status/1682426745109217280)
 
 在与同事熟悉后，我有了一些称呼，如平哥、平总、剑平哥等。这其中后面两个是新获得的称呼，hhhhhhhh。有一个哥们每天下午固定会下去散步唠唠嗑，碰巧他在一个小团体里。通过一次聚餐的邀请，我加入了微信群，认识了两个女同事。我们在闲暇时会聊天，她们说我刚来时每天自己带饭，都没法认识一下，听起来特别搞笑。后来，我们几个人经常在周五一起出去吃饭，周末会一起外出玩耍，打打球。
 
 然而，好景不长，这位哥们被裁员了，我一度在公司又成为了一个人。这个过程充满了起伏，但也让我更深刻地理解了工作和人际关系的复杂性。
 
-[![](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/2023AnnualSummary_img/twitter2.png)](https://x.com/ReaJason_/status/1721547683696140687)
+[![twiiter](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/2023AnnualSummary_img/twitter2.png)](https://x.com/ReaJason_/status/1721547683696140687)
 
 ### 八卦环节
 
@@ -70,25 +69,27 @@ sticky: 101
 最后两天去了郴州找好兄弟一起玩，简直就是大型网友面基现场，第一天中午吃了猪脑壳饭，晚上一起网吧三连坐，第二天吃了杀猪粉，一起打了台球，吃了火锅，晚上又吃了烧烤。
 
 ### 耗时一个月我终于学会了盲打
-> 练习网站：https://www.typingclub.com/sportal/
 
+> 练习网站：[https://www.typingclub.com/sportal/](https://www.typingclub.com/sportal/)
 > 总练习时长：12h，掌握了键盘 97% 的键位
 
 练习打字是一直以来就想做的事情但是一直没有行动，逛大佬的博客才有了练打字的决心（目前的博客样式也是来自于他的 - GitHub 前设计师） - [Typing fast is a high-leverage skill](https://brianlovin.com/writing/type-faster)
 
 没有其他经验分享，跟着教程就好。
 
-![](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/2023AnnualSummary_img/typing.png)
+![typing.png](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/2023AnnualSummary_img/typing.png)
 
 其他打字相关网站：
-1. https://www.typing.com/student/lessons - 这个网站也适合入门学习 
-2. https://qwerty.kaiyi.cool/ - 打字学英语
-3. https://www.keybr.com/ - 这个在学完整个键盘如何打字之后可用于练习
-4. https://play.typeracer.com/
-5. https://10fastfingers.com/
+
+1. [https://www.typing.com/student/lessons](https://www.typing.com/student/lessons) - 这个网站也适合入门学习
+2. [https://qwerty.kaiyi.cool/](https://qwerty.kaiyi.cool/) - 打字学英语
+3. [https://www.keybr.com/](https://www.keybr.com/) - 这个在学完整个键盘如何打字之后可用于练习
+4. [https://play.typeracer.com/](https://play.typeracer.com/)
+5. [https://10fastfingers.com/](https://10fastfingers.com/)
 
 ### 写了开源项目
-> https://github.com/ReaJason/xhs
+
+> [ReaJason/xhs](https://github.com/ReaJason/xhs)
 
 这是一个用于爬取小红书网页端数据的 Python 小工具，也可发笔记。最初是看到在 GitHub 没有人分享，就想着刚好没人做，就自己写一个好玩了，这个项目带我认识到很多人，有专门搞各个平台数据分析精通 jsvmp 反混淆的大佬，有做 AI 创业公司大佬来找我一起交流，也有网上开发爱好者拉我进群聊，还有愿意共享给我高价买到的最新算法，还有很多通过项目去我博客逛和我在 TG 聊天的等等。当前项目后续可能只有一个演进方向了，就是用分布式爬虫框架搭一套数据采集平台了。明年我也要做一个开源项目，大概率是网络安全方向的啦！期待有做安全的师傅一起交流网络安全经验~
 
@@ -108,23 +109,23 @@ sticky: 101
 ### 看过的
 
 - [2023 南京大学 “操作系统：设计与实现” (蒋炎岩)](https://space.bilibili.com/202224425/channel/collectiondetail?sid=1116786&ctype=0)，jyy yyds！寓教于乐的老师狠狠地爱了，有时间还会刷他的 OS 课，争取明年学 RUST 写 OS 的时候再来温习温习。
-- 《云之羽》、《苍兰诀》 - 狠狠磕了张凌赫和虞书欣的 CP，苍兰诀真的是我心中古装天花板，太好磕了！
+- 《云之羽》、《苍兰诀》 - 偶尔磕磕 CP 还是不错的，苍兰诀真的是我心中古装天花板，太好磕了！
 - 《进击的巨人 最终季 完结篇》之前漫画结局出来各种吐槽的，不过我是动画党，这次的完结篇真的超级好看，很多难以解释的事情居然有了合理的解释！
 - 《咒术回战 第二季》还是一如既往的好看
 - 《想要成为影之实力者！》55555，这个番看得真的好爽，爽番
-- 《天国大魔境》、《地狱乐》好番，不过要说有什么好看的，其实看了很快就忘了
+- 《天国大魔境》、《地狱乐》、《放学后失眠的你》、《跃动青春》好番
 - 《无职转生-第二季》可惜没有第一季好看，我还以为这一季能找到男主的妈妈呢
 - 《香格里拉·弗陇提亚～屎作猎人向神作发起》偶尔看看刷怪升级的番还不错
-- 《僵尸百分百～在成为僵尸前要做的100件事～》色彩好多，而且女主好飒，好喜欢，可惜停更了
 - 《经验丰富的你和经验为零的我交往的故事》结合最近的经历，终于彻底理解了表白是水到渠成的事情，而不是你觉得你说出来就好了，可能还会给到别人压力，以前我傻傻地认为喜欢一个人就一定要说出来不然就错过了......
 - 和同事一起去看了《红猪》，好好看，想起来以前在电脑上看过
 - 《封神第一部》、《芭比》、《消失的她》、《奥本海默》好久没去电影院看电影了，IMAX 太爽了
 - 《想见你》、《想见你电影版》55555，好好看，伍佰的歌《Last Dance》一响我就会想到这个剧，后来因为光汉哥还追了《中餐厅第七季》
+- 《重启人生》偶尔看看日剧也是不错的
 - 《琅琊榜》同事推荐看的，真的好喜欢胡歌，里面一直 Q 胡歌的妆容剧情有一点凑巧
 
 ### 去过的
 
-- 在北京，去什刹海看日落，去了北海公园散步，吃了四季民福的烤鸭，吃了吴裕泰的茉莉花茶冰淇淋，去了故宫，喝了小吊梨汤，吃了 Wagas，吃了西南官话贵州菜，吃了鱼酷......
+- 在北京，去什刹海看日落，去了北海公园散步，吃了四季民福的烤鸭，吃了吴裕泰的茉莉花茶冰淇淋，去了故宫，喝了小吊梨汤，吃了 Wagas，吃了西南官话贵州菜，吃了鱼酷，去了颐和园、去了南山滑雪场......
 - 去了秦皇岛，在西浴场看到了日出，去到鸽子窝看了海鸥与鸽子🕊（淡季免门票），吃了物美价廉的山楂和草莓糖葫芦，吃了叶存利海鲜大馅饺子。
 - 去了天津，看了天津之眼，吃了西塔老太太和同发号，天津的物价真的比北京低一些。
 - 去了青岛，下高铁站就去吃了燕欣老字号活海鲜家常菜（北京路店）的海肠捞饭、油泼扇贝和油焖大虾，去了小麦岛看日落，可惜天气是阴天⛅，晚上吃了大生蚝，喝了青岛啤酒，第二天去了青岛第二海水浴场，吃了小宫的现烤面包，吃了汇丰苑的海肠捞饭、鲜虾干锅扁豆丝、青岛凉粉和小酥肉。去青岛一定要吃海肠捞饭！！！
