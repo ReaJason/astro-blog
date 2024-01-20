@@ -10,9 +10,9 @@ description: '慢慢成长🌟'
 
 - [x] I aspire to learn about computer operating systems
 - [ ] I am eager to refresh my knowledge of data structures and algorithms, and proficiently implement them in Java
-- [x] I aspire to acquire knowledge in [Rust programming language ](https://www.rust-lang.org/)
+- [x] I aspire to acquire knowledge in [Rust programming language](https://www.rust-lang.org/)
 - [x] I long to learn both English and Japanese languages
-- [ ] I wish to explore [Unity game engine ](https://unity.com/)
+- [ ] I wish to explore [Unity game engine](https://unity.com/)
 - [ ] I am interested in exploring [Clojure programming language](https://clojure.org/)
 
 ## Ambitions

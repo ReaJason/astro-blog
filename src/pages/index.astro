@@ -2,12 +2,13 @@
 import TitleBar from '@components/TitleBar.astro'
 import { getEntryBySlug } from 'astro:content'
 import Layout from '../layouts/Layout.astro'
+import { siteConfig } from 'src/configs/site'
 
 const about = await getEntryBySlug('about', 'index')
 const { Content } = await about.render()
 ---
 
-<Layout title="ReaJason">
+<Layout title="ReaJason" blogImg={siteConfig.hompage}>
   <div class="flex flex-1">
     <div class="flex w-full">
       <main
