@@ -1,11 +1,11 @@
 ---
-import TitleBar from '@components/TitleBar.astro'
-import { getEntryBySlug } from 'astro:content'
-import Layout from '../layouts/Layout.astro'
-import { siteConfig } from 'src/configs/site'
+import TitleBar from "@components/TitleBar.astro";
+import { getEntryBySlug } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import { siteConfig } from "src/configs/site";
 
-const about = await getEntryBySlug('about', 'index')
-const { Content } = await about.render()
+const about = await getEntryBySlug("about", "index");
+const { Content } = await about.render();
 ---
 
 <Layout title="ReaJason" blogImg={siteConfig.hompage}>
@@ -16,17 +16,11 @@ const { Content } = await about.render()
       >
         <TitleBar />
         <div class="p-4"></div>
-        <div class="mx-auto w-full max-w-3xl px-4 py-12 pb-10 md:px-8">
-          <div class="pb-24 space-y-8 md:space-y-16">
-            <div class="grid items-start grid-cols-1 gap-6 md:grid-cols-12">
-              <h4
-                class="col-span-2 pt-8 text-lg font-extrabold text-black dark:text-white md:pt-0 md:text-right md:text-base md:font-normal md:text-opacity-40"
-              >
-              </h4>
-              <div class="col-span-10">
-                <div class="prose text-primary">
-                  <Content />
-                </div>
+        <div class="mx-auto w-full max-w-3xl px-4 pb-10 md:px-8">
+          <div class="grid items-start grid-cols-1 gap-6 md:grid-cols-12">
+            <div class="col-span-12">
+              <div class="prose text-primary">
+                <Content />
               </div>
             </div>
           </div>
