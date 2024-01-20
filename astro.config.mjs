@@ -8,7 +8,7 @@ import sitemap from '@astrojs/sitemap'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://reajason.eu.org',
+  site: 'https://reajason.com',
   integrations: [
     Unocss({
       injectReset: true,
@@ -17,7 +17,7 @@ export default defineConfig({
         presetAttributify(),
         presetTypography(),
         presetIcons({
-          scale: 1.2,
+          scale: 1,
         }),
       ],
       rules: [

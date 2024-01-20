@@ -5,6 +5,19 @@ const { title, detailPage, backHref } = Astro.props
 <script>
   import { openNavBar, closeNavBar } from 'src/utils'
 
+  const theme = (() => {
+      if (
+        typeof localStorage !== "undefined" &&
+        localStorage.getItem("theme")
+      ) {
+        return localStorage.getItem("theme");
+      }
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        return "dark";
+      }
+      return "light";
+    })();
+
   const headers = document.querySelectorAll('header.title-header')
   headers.forEach((header) => {
     const container = header.parentElement!
@@ -12,11 +25,18 @@ const { title, detailPage, backHref } = Astro.props
     const refreshHeaderStyle = () => {
       const calcu = container.scrollTop / 200
       const shadowOpacity = calcu > 0.12 ? 0.12 : calcu
+      let color = 255
+      let opacity = 0.8;
+      if(theme === "dark"){
+          color = 50;
+          opacity = 0.5
+      }
+
       const style = `
-        background: rgba(255,255,255,${
-          shadowOpacity === 0 ? shadowOpacity : shadowOpacity + 0.8
+        background: rgba(${color},${color},${color},${
+          shadowOpacity === 0 ? shadowOpacity : shadowOpacity + opacity
         });
-          box-shadow: 0 1px 3px rgba(0,0,0,${shadowOpacity});
+          box-shadow: rgba(0,0,0,${shadowOpacity}) 0 1px 3px;
           min-height: 48px;
       `
       header.setAttribute('style', style)

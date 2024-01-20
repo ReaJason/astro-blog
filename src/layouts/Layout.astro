@@ -18,7 +18,9 @@ const { title, blogImg } = Astro.props;
   </head>
   <body>
     <div class="back-mask"></div>
-    <div class="relative flex h-full min-h-screen w-full">
+    <div
+      class="relative flex h-full min-h-screen w-full text-gray-700 dark:text-gray-200"
+    >
       <SideBar />
       <slot />
     </div>
@@ -28,6 +30,10 @@ const { title, blogImg } = Astro.props;
         overflow: hidden;
         font-size: 1rem;
         line-height: 1.5rem;
+      }
+      html.dark {
+        background: #121212;
+        color-scheme: dark;
       }
       .back-mask {
         position: fixed;
@@ -39,5 +45,25 @@ const { title, blogImg } = Astro.props;
         pointer-events: none;
       }
     </style>
+    <script is:inline>
+      const theme = (() => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return "light";
+      })();
+
+      if (theme === "light") {
+        document.documentElement.classList.remove("dark");
+      } else {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
   </body>
 </html>

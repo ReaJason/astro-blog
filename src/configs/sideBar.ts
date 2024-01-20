@@ -7,7 +7,7 @@ export const navigations: NavigationGroup[] = [
       {
         label: 'Home',
         href: '/',
-        iconClass: 'i-fa-solid-bolt',
+        iconClass: 'i-carbon-activity',
       },
       {
         label: 'Writing',

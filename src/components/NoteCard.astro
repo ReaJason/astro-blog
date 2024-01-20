@@ -3,12 +3,12 @@ const { title, type, href } = Astro.props;
 ---
 
 <div
-  class="flex flex-col bg-white b-1 b-gray-300 b-solid b-rd p-4 mt-4 shadow shadow-op-20 shadow-coolgray"
+  class="flex flex-col b-1 b-gray-300 b-solid b-rd p-4 mt-4"
 >
   <div class="font-bold text-base">
     <a class="inline-block break-all decoration-none" href={href}>{title}</a>
   </div>
-  <div class="flex text-sm mt-3 mb-0 color-gray-600 line-clamp-1">
+  <div class="flex text-sm mt-3 mb-0 opacity-75 line-clamp-1">
     <div class="i-carbon-hashtag mr-1"></div>{type}
   </div>
 </div>

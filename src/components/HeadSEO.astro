@@ -1,9 +1,9 @@
 ---
-import { siteConfig } from '../configs/site'
-const { title, blogImg } = Astro.props
-const { author, twitter, avatar, keywords, description } = siteConfig
-const url = Astro.url
-const image = blogImg ? blogImg : avatar
+import { siteConfig } from "../configs/site";
+const { title, blogImg } = Astro.props;
+const { author, twitter, avatar, keywords, description } = siteConfig;
+const url = Astro.url;
+const image = blogImg ? blogImg : avatar;
 ---
 
 <meta charset="UTF-8" />
@@ -28,3 +28,10 @@ const image = blogImg ? blogImg : avatar
 <meta name="twitter:title" content={title} />
 <meta name="twitter:creator" content={twitter} />
 <meta property="twitter:description" content={description} />
+
+<meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)" />
+<meta
+    name="theme-color"
+    content="rgb(23, 23, 23)"
+    media="(prefers-color-scheme: dark)"
+/>

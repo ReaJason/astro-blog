@@ -1,19 +1,18 @@
 ---
-import { dateToString } from "src/utils";
 const { title, date, desc, href } = Astro.props;
 ---
 
 <div
-  class="flex flex-col bg-white b-1 b-gray-300 b-solid b-rd p-4 mt-4 shadow shadow-op-20 shadow-coolgray"
+  class="flex flex-col b-gray-300 b-rd b-1 p-4 mt-4"
 >
   <div class="font-bold text-base">
     <a class="inline-block break-all decoration-none" href={href}>{title}</a>
   </div>
   <p
-    class="text-sm mt-3 mb-0 color-gray-600 line-clamp-1"
+    class="text-sm mt-3 mb-0 opacity-75 line-clamp-1"
     set:html={desc ?? "&emsp;"}
   />
-  <p class="text-sm hyphens-auto mt-2 mb-0 break-all color-gray-600">
+  <p class="text-sm hyphens-auto mt-2 mb-0 break-all opacity-75">
     {date}
   </p>
 </div>
