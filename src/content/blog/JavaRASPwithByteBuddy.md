@@ -1,7 +1,7 @@
 ---
 title: 使用 Byte Buddy 实现 Java RASP
 date: "2024-01-21 19:55:55"
-index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/HardExperience_index_img.png
+index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/JavaRASPwithByteBuddy_index_img.png
 tags: [Notions]
 categories: [Blog]
 description: "为什么 Java Agent 的项目很多，网上学习资源却很少"
