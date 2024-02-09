@@ -21,4 +21,3 @@ description: "Notions"
 ![Typora YYDS](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/BeStrongerAndBetter_img/todolist.png)
 
 梦想是注定孤独的旅行，希望大家都能脚踏实地，仰望星空，成为自己想成为的模样，在最该努力奋斗的日子多为自己或者是后代的命运奋斗一点。
-

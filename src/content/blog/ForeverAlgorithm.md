@@ -348,8 +348,6 @@ public class Code01_SelectionSort {
 - 空间复杂度：O(1)
 - 稳定性：不稳定
 
-
-
 ### 3.2 排序演示
 
 ```java
@@ -677,15 +675,7 @@ public class Code06_MergeSort {
 
 ## 7、基数排序
 
-
-
-
-
 ## 8、堆排序
-
-
-
-
 
 # 数组
 

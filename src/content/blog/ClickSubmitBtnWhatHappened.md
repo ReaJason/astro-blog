@@ -1,5 +1,5 @@
 ---
-title: 关于点击了打卡提交按钮，这世界发生了什么这回事
+title: 关于点击了打卡提交按钮
 date: "2022-03-19 12:08:29"
 tags: [Notes]
 categories: [Blog]

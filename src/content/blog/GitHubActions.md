@@ -156,7 +156,7 @@ jobs:
 
 `https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg`
 
-例：[![](https://github.com/ReaJason/17wanxiaoCheckin/actions/workflows/main.yml/badge.svg)](https://github.com/ReaJason/17wanxiaoCheckin/actions/workflows/main.yml/badge.svg)
+例：[![badge.svg](https://github.com/ReaJason/17wanxiaoCheckin/actions/workflows/main.yml/badge.svg)](https://github.com/ReaJason/17wanxiaoCheckin/actions/workflows/main.yml/badge.svg)
 
 ## 表达式
 
