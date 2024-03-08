@@ -156,7 +156,9 @@ public static class VMOptionsInterceptor {
 
 调试的方法就是傻傻地找个地方打断点然后利用反射 API 看里面值的状态，如下图，查看证书过期时间
 
-`Class.forName("com.intellij.ui.LicensingFacade").getDeclaredMethod("getLicenseExpirationDate").invoke(Class.forName("com.intellij.ui.LicensingFacade").getDeclaredMethod("getInstance").invoke(null))`
+```java
+Class.forName("com.intellij.ui.LicensingFacade").getDeclaredMethod("getLicenseExpirationDate").invoke(Class.forName("com.intellij.ui.LicensingFacade").getDeclaredMethod("getInstance").invoke(null))
+```
 
 ![debug](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/RainBowBracketsCracked_img/debug.png)
 
