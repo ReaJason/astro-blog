@@ -27,7 +27,7 @@ description: "Java Agent 的一次小小实践"
 
 这块也不是特别有必要去逆向字符串加解密，因为我们有伟大的 Remote JVM 调试功能。可参考 [图文并茂教你学会使用 IntelliJ IDEA 进行远程调试](https://zhuanlan.zhihu.com/p/95098721)，配合 ChatGPT 啥的大语言模型学习更迅速哦。由于 IDEA 不能自己调试自己，所以我使用 PyCharm 安装了 Rainbow Brackets 插件并开启了调试。
 
-1. 在 PyCharm 中的 vmoptions 里面加了一行 `-agentlib:jdwp=transport=dt_socket,server=n,address=*:5005,suspend=y`，记住加了之后如果不执行第二步打开调试是打不开 PyCharm 哦，所以调试完记得去掉。
+1. 在 PyCharm 中的 vmoptions 里面加了一行 -agentlib:jdwp=transport=dt_socket,server=n,address=*:5005,suspend=y，记住加了之后如果不执行第二步打开调试是打不开 PyCharm 哦，所以调试完记得去掉。
 2. 打开 IDEA，使用 Listen to remote JVM 模式，在 `ਧભ.class` 最下面一个变量打断点，开启 PyCharm 并随便打开一个项目，则可看到下面这些变量
 
 ![debug-decoded-str](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/RainBowBracketsCracked_img/debug-decoded-str.png)
@@ -40,7 +40,7 @@ description: "Java Agent 的一次小小实践"
 
 ![jadx-find-usage](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/RainBowBracketsCracked_img/jadx-find-usage.png)
 
-一层层往上找，最终发现这儿用到了，`You are using ja-netfilter to crack the IDE. To activate this plugin pls remove it from your IDE class path` 这句话。双击这个 `m1141` 跳转到它的声明。
+一层层往上找，最终发现这儿用到了，You are using ja-netfilter to crack the IDE. To activate this plugin pls remove it from your IDE class path 这句话。双击这个 `m1141` 跳转到它的声明。
 
 ![m1141](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/RainBowBracketsCracked_img/m1141.png)
 
@@ -140,7 +140,7 @@ public static class VMOptionsInterceptor {
 -javaagent:/Users/reajason/ReaJason/jetbra/ja-netfilter.jar=jetbrains
 ```
 
-启动之后显示了一个 `There is no valid license in your account.`
+启动之后显示了一个 There is no valid license in your account.
 
 ![first-cracked-resutl](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/RainBowBracketsCracked_img/first-cracked-resutl.png)
 
