@@ -10,10 +10,10 @@ export interface Props {
   descriptoin?: string;
 }
 
-const { title, blogImg , descriptoin} = Astro.props;
+const { title, blogImg, descriptoin } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" transition:animate="none">
   <head>
     <HeadSEO title={title} blogImg={blogImg} description={descriptoin} />
@@ -68,6 +68,26 @@ const { title, blogImg , descriptoin} = Astro.props;
       } else {
         document.documentElement.classList.add("dark");
       }
+    </script>
+
+    <script>
+      document.addEventListener("astro:after-swap", () => {
+        const theme = (() => {
+          if (
+            typeof localStorage !== "undefined" &&
+            localStorage.getItem("theme")
+          ) {
+            return localStorage.getItem("theme");
+          }
+          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            return "dark";
+          }
+          return "light";
+        })();
+        theme === "dark"
+          ? document.documentElement.classList.add("dark")
+          : document.documentElement.classList.add("light");
+      });
     </script>
   </body>
 </html>

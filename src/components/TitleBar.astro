@@ -1,11 +1,10 @@
 ---
-const { title, detailPage, backHref } = Astro.props
+const { title, detailPage, backHref } = Astro.props;
 ---
 
-<script>
-  import { openNavBar, closeNavBar } from 'src/utils'
-
-  const theme = (() => {
+<script data-astro-rerun>
+  document.addEventListener("astro:page-load", () => {
+    const theme = (() => {
       if (
         typeof localStorage !== "undefined" &&
         localStorage.getItem("theme")
@@ -18,42 +17,83 @@ const { title, detailPage, backHref } = Astro.props
       return "light";
     })();
 
-  const headers = document.querySelectorAll('header.title-header')
-  headers.forEach((header) => {
-    const container = header.parentElement!
+    const headers = document.querySelectorAll("header.title-header");
+    headers.forEach((header) => {
+      const container = header.parentElement;
 
-    const refreshHeaderStyle = () => {
-      const calcu = container.scrollTop / 200
-      const shadowOpacity = calcu > 0.12 ? 0.12 : calcu
-      let color = 255
-      let opacity = 0.8;
-      if(theme === "dark"){
+      const refreshHeaderStyle = () => {
+        const calcu = container.scrollTop / 200;
+        const shadowOpacity = calcu > 0.12 ? 0.12 : calcu;
+        let color = 255;
+        let opacity = 0.8;
+        if (theme === "dark") {
           color = 50;
-          opacity = 0.5
-      }
+          opacity = 0.5;
+        }
 
-      const style = `
-        background: rgba(${color},${color},${color},${
-          shadowOpacity === 0 ? shadowOpacity : shadowOpacity + opacity
-        });
-          box-shadow: rgba(0,0,0,${shadowOpacity}) 0 1px 3px;
-          min-height: 48px;
-      `
-      header.setAttribute('style', style)
+        const style = `
+  background: rgba(${color},${color},${color},${
+    shadowOpacity === 0 ? shadowOpacity : shadowOpacity + opacity
+  });
+    box-shadow: rgba(0,0,0,${shadowOpacity}) 0 1px 3px;
+    min-height: 48px;
+`;
+        header.setAttribute("style", style);
+      };
+
+      container.addEventListener("scroll", refreshHeaderStyle);
+      refreshHeaderStyle();
+    });
+
+    const openNavBar = () => {
+      const navBar = document.getElementById("navBar");
+      const overlayer = document.getElementById("overlayer");
+      const menuBtns = document.querySelectorAll(".menu-btn");
+      menuBtns.forEach((menuBtn) => {
+        const [menuIcon, closeIcon] = menuBtn.children;
+        menuIcon.classList.add("hidden");
+        closeIcon.classList.remove("hidden");
+      });
+
+      navBar?.classList.add("inset-y-0", "left-0", "shadow-lg");
+      navBar?.classList.replace("-translate-x-full", "translate-x-0");
+
+      overlayer?.classList.replace(
+        "pointer-events-none",
+        "pointer-events-auto",
+      );
+      overlayer?.classList.replace("opacity-0", "opacity-100");
+    };
+
+    const closeNavBar = () => {
+      const navBar = document.getElementById("navBar");
+      const overlayer = document.getElementById("overlayer");
+      const menuBtns = document.querySelectorAll(".menu-btn");
+      menuBtns.forEach((menuBtn) => {
+        const [menuIcon, closeIcon] = menuBtn.children;
+        menuIcon.classList.remove("hidden");
+        closeIcon.classList.add("hidden");
+      });
+
+      navBar?.classList.remove("inset-y-0", "left-0", "shadow-lg");
+      navBar?.classList.replace("translate-x-0", "-translate-x-full");
+
+      overlayer?.classList.replace(
+        "pointer-events-auto",
+        "pointer-events-none",
+      );
+      overlayer?.classList.replace("opacity-100", "opacity-0");
+    };
+
+    const menuBtns = document.querySelectorAll(".menu-btn");
+    if (menuBtns) {
+      menuBtns.forEach((menuBtn) => {
+        const [menuIcon, closeIcon] = menuBtn.children;
+        menuIcon.addEventListener("click", openNavBar);
+        closeIcon.addEventListener("click", closeNavBar);
+      });
     }
-
-    container.addEventListener('scroll', refreshHeaderStyle)
-    refreshHeaderStyle()
-  })
-
-  const menuBtns = document.querySelectorAll('.menu-btn')
-  if (menuBtns) {
-    menuBtns.forEach((menuBtn) => {
-      const [menuIcon, closeIcon] = menuBtn.children
-      menuIcon.addEventListener('click', openNavBar)
-      closeIcon.addEventListener('click', closeNavBar)
-    })
-  }
+  });
 </script>
 
 <header
