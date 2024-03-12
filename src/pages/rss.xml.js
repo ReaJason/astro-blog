@@ -2,7 +2,7 @@ import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content'
 import sanitizeHtml from 'sanitize-html'
 import MarkdownIt from 'markdown-it';
-
+import {siteConfig} from '../configs/site'
 const parser = new MarkdownIt();
 
 export async function get(context) {
@@ -14,8 +14,8 @@ export async function get(context) {
       return a.data?.date > b.data?.date ? -1 : 1
     })
   return rss({
-    title: 'ReaJason’s Blog',
-    description: 'build for fun, build for life',
+    title: siteConfig.title,
+    description: siteConfig.description,
     site: context.site,
     items: posts.map(post => ({
       link: `/writing/${post.slug}/`,

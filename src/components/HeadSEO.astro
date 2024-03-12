@@ -1,9 +1,10 @@
 ---
 import { siteConfig } from "../configs/site";
-const { title, blogImg } = Astro.props;
+const { title, blogImg, blogDesc } = Astro.props;
 const { author, twitter, avatar, keywords, description } = siteConfig;
 const url = Astro.url;
 const image = blogImg ? blogImg : avatar;
+const desc = blogDesc ? blogDesc : description;
 ---
 
 <meta charset="UTF-8" />
@@ -13,13 +14,13 @@ const image = blogImg ? blogImg : avatar;
 
 <meta name="keywords" content={keywords} />
 <meta name="author" content={author} />
-<meta name="description" content={description} />
+<meta name="description" content={desc} />
 
 <meta property="og:type" content="article" />
 <meta property="og:title" content={title} />
 <meta property="og:url" content={url} />
 <meta property="og:site_name" content={author} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={desc} />
 <meta property="og:image" content={image} />
 
 <meta name="twitter:card" content="summary_large_image" />
@@ -27,7 +28,7 @@ const image = blogImg ? blogImg : avatar;
 <meta name="twitter:site" content={Astro.site} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:creator" content={twitter} />
-<meta property="twitter:description" content={description} />
+<meta property="twitter:description" content={desc} />
 
 <meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)" />
 <meta

@@ -9,6 +9,9 @@ import sitemap from '@astrojs/sitemap'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://reajason.com',
+  prefetch: {
+    defaultStrategy: "viewport"
+  },
   integrations: [
     Unocss({
       injectReset: true,

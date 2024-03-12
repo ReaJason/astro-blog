@@ -2,19 +2,23 @@
 import HeadSEO from "@components/HeadSEO.astro";
 import SideBar from "@components/SideBar.astro";
 
+import { ViewTransitions } from "astro:transitions";
+
 export interface Props {
   title: string;
   blogImg?: string;
+  descriptoin?: string;
 }
 
-const { title, blogImg } = Astro.props;
+const { title, blogImg , descriptoin} = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" transition:animate="none">
   <head>
-    <HeadSEO title={title} blogImg={blogImg} />
+    <HeadSEO title={title} blogImg={blogImg} description={descriptoin} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
     <div class="back-mask"></div>
