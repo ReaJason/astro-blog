@@ -24,29 +24,31 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<Layout title={entry.data.title} blogImg={entry.data.index_img} descriptoin={entry.data.description}>
-  <div class="flex flex-1">
-    <div class="flex w-full">
-      <SideList listItems={listItems} title="Writing" />
-      <article
-        class="relative flex max-h-screen w-full flex-col overflow-y-auto"
-        transition:animate="fade"
-      >
-        <TitleBar detailPage="true" backHref="/writing" />
-        <div class="mx-auto w-full max-w-3xl px-4 py-12 pb-10 md:px-8">
-          <div class="space-y-3">
-            <h1 class="text-primary font-sans text-2xl font-bold xl:text-3xl">
-              {entry.data.title}
-            </h1>
-            <span class="text-truegray inline-block leading-snug">
-              {dateToString(entry.data.date)}
-            </span>
-          </div>
-          <div class="prose mt-8">
-            <Content />
-          </div>
+<Layout
+  title={entry.data.title}
+  blogImg={entry.data.index_img}
+  descriptoin={entry.data.description}
+>
+  <div class="flex w-full">
+    <SideList listItems={listItems} title="Writing" />
+    <article
+      class="relative flex max-h-screen w-full flex-col overflow-y-auto"
+      transition:animate="fade"
+    >
+      <TitleBar detailPage="true" backHref="/writing" />
+      <div class="mx-auto w-full max-w-3xl px-4 py-12 pb-10 md:px-8">
+        <div class="space-y-3">
+          <h1 class="text-primary font-sans text-2xl font-bold xl:text-3xl">
+            {entry.data.title}
+          </h1>
+          <span class="text-truegray inline-block leading-snug">
+            {dateToString(entry.data.date)}
+          </span>
         </div>
-      </article>
-    </div>
+        <div class="prose mt-8">
+          <Content />
+        </div>
+      </div>
+    </article>
   </div>
 </Layout>
