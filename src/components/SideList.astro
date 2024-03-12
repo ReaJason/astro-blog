@@ -5,16 +5,18 @@ const { title, listItems } = Astro.props;
 const curPage = new URL(Astro.url).pathname;
 ---
 
-<script>
-  const pathName = new URL(document.location.href).pathname;
-  const link = document.querySelector(`a[href='${pathName}']`);
-  if (link) {
-    link.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-      inline: "nearest",
-    });
-  }
+<script data-astro-rerun>
+  document.addEventListener("astro:page-load", () => {
+    const pathName = new URL(document.location.href).pathname;
+    const link = document.querySelector(`a[href='${pathName}']`);
+    if (link) {
+      link.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "nearest",
+      });
+    }
+  });
 </script>
 
 <section class="hidden lg:flex">

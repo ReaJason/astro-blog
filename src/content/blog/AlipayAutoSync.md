@@ -10,7 +10,6 @@ description: "主要实现功能为支付宝多账号切换 + 进入运动进行
 本脚本所使用的autojs版本为 —> [Auto.js_4.1.1 Alpha2](https://lingsiki.lanzoui.com/in80Mi4ve3a)
 实现原理：利用三星健康管理刷三星健康的步数，然后把三星健康的步数同步到每一个小号上
 
-
 ### 一、基本功能
 
 1. 支付宝刷步数
@@ -180,7 +179,7 @@ function enterForest(){
 
 ### 四、运行效果
 
-<iframe height="400" width="500" src="//player.bilibili.com/player.html?aid=670137563&bvid=BV17a4y1s7nP&cid=253887490&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe height="400" width="500" src="//player.bilibili.com/player.html?aid=670137563&bvid=BV17a4y1s7nP&cid=253887490&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" />
 
 ### 五、注意事项
 
@@ -188,4 +187,3 @@ function enterForest(){
 2. 使用时修改小号账号和密码，以及大号账号和密码即可
 3. 每一部手机的脚本运行效果可能会不一样，因为软件的局限性
 4. 可以根据autojs的文档自己编写脚本 —> [AutoJs-Docs](https://hyb1996.github.io/AutoJs-Docs/#/)
-
