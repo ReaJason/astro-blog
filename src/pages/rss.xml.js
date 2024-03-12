@@ -1,18 +1,12 @@
 import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content'
 import sanitizeHtml from 'sanitize-html'
 import MarkdownIt from 'markdown-it';
-import {siteConfig} from '../configs/site'
+import { siteConfig } from '../configs/site'
+import { sortedPost } from "../utils"
 const parser = new MarkdownIt();
 
-export async function get(context) {
-  const blogs = await getCollection('blog')
-  const posts = blogs
-    .filter((blog) => !blog.data.draft)
-    .filter((blog) => !blog.data.hide)
-    .sort((a, b) => {
-      return a.data?.date > b.data?.date ? -1 : 1
-    })
+export async function GET(context) {
+  const posts = await sortedPost()
   return rss({
     title: siteConfig.title,
     description: siteConfig.description,
