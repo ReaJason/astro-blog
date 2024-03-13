@@ -5,12 +5,18 @@ import presetIcons from '@unocss/preset-icons'
 import presetAttributify from '@unocss/preset-attributify'
 import presetTypography from '@unocss/preset-typography'
 import sitemap from '@astrojs/sitemap'
+import remarkLazyImage from './remark-image-lazy'
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://reajason.com',
-  prefetch: {
-    defaultStrategy: "viewport"
+  experimental: {
+    contentCollectionCache: true
+  },
+  prefetch: true,
+  markdown: {
+    gfm: true,
+    remarkPlugins: [remarkLazyImage]
   },
   integrations: [
     Unocss({
