@@ -19,6 +19,27 @@ const { title, blogImg, descriptoin } = Astro.props;
     <HeadSEO title={title} blogImg={blogImg} description={descriptoin} />
     <title>{title}</title>
     <ViewTransitions />
+    <script defer is:inline>
+      const theme = (() => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return "light";
+      })();
+
+      if (theme === "light") {
+        document.documentElement.classList.remove("dark");
+      } else {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
+    <script async defer src="https://us.umami.is/script.js" data-website-id="9b120de6-0c44-46c9-83c6-2edb83911768"></script>
   </head>
   <body>
     <div class="back-mask"></div>
@@ -49,27 +70,6 @@ const { title, blogImg, descriptoin } = Astro.props;
         pointer-events: none;
       }
     </style>
-    <script is:inline>
-      const theme = (() => {
-        if (
-          typeof localStorage !== "undefined" &&
-          localStorage.getItem("theme")
-        ) {
-          return localStorage.getItem("theme");
-        }
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          return "dark";
-        }
-        return "light";
-      })();
-
-      if (theme === "light") {
-        document.documentElement.classList.remove("dark");
-      } else {
-        document.documentElement.classList.add("dark");
-      }
-    </script>
-
     <script>
       document.addEventListener("astro:after-swap", () => {
         const theme = (() => {
