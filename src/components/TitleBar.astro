@@ -17,7 +17,7 @@ const { title, detailPage, backHref } = Astro.props;
       return "light";
     })();
 
-    const headers = document.querySelectorAll("header.title-header");
+    const headers = document.querySelectorAll(".title-header");
     headers.forEach((header) => {
       const container = header.parentElement;
 
@@ -96,7 +96,7 @@ const { title, detailPage, backHref } = Astro.props;
   });
 </script>
 
-<header
+<div
   style="min-height: 48px;"
   class="title-header filter-blur sticky top-0 z-10 flex flex-col justify-center px-3 py-2 dark:border-b dark:border-gray-900"
 >
@@ -116,7 +116,7 @@ const { title, detailPage, backHref } = Astro.props;
           <a
             id="backBtn"
             href={backHref}
-            class=" flex items-center justify-center p-2 rounded-md text-primary hover:bg-gray-200 dark:hover:bg-gray-800"
+            class="flex items-center justify-center p-2 rounded-md text-primary hover:bg-gray-200 dark:hover:bg-gray-800 lg:hidden"
           >
             <div class="i-carbon-arrow-left" />
           </a>
@@ -129,4 +129,4 @@ const { title, detailPage, backHref } = Astro.props;
     </span>
     <slot />
   </div>
-</header>
+</div>
