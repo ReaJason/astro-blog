@@ -26,7 +26,7 @@
 		"@unocss/astro": "^0.59.4",
 		"@unocss/preset-attributify": "^0.59.2",
 		"@unocss/preset-icons": "^0.59.2",
-		"@unocss/preset-typography": "^0.59.4",
+		"@unocss/preset-typography": "^0.60.2",
 		"@unocss/preset-uno": "^0.59.2",
 		"@unocss/reset": "^0.59.2",
 		"unocss": "^0.59.2"
