@@ -23,7 +23,7 @@
 		"@iconify-json/carbon": "^1.1.31",
 		"@iconify-json/fa-solid": "^1.1.8",
 		"@iconify-json/simple-icons": "^1.1.99",
-		"@unocss/astro": "^0.59.4",
+		"@unocss/astro": "^0.60.2",
 		"@unocss/preset-attributify": "^0.59.2",
 		"@unocss/preset-icons": "^0.59.2",
 		"@unocss/preset-typography": "^0.59.4",
