@@ -24,7 +24,7 @@
 		"@iconify-json/fa-solid": "^1.1.8",
 		"@iconify-json/simple-icons": "^1.1.104",
 		"@unocss/astro": "^0.59.4",
-		"@unocss/preset-attributify": "^0.59.4",
+		"@unocss/preset-attributify": "^0.60.4",
 		"@unocss/preset-icons": "^0.59.4",
 		"@unocss/preset-typography": "^0.59.4",
 		"@unocss/preset-uno": "^0.59.4",
