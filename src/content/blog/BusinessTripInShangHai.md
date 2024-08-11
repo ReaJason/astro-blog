@@ -3,6 +3,7 @@ title: 上海出差
 tags: [Notions]
 categories: [Blog]
 date: "2024-08-11 14:10:00"
+index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/BusinessTripInShangHai_index_img.png
 description: "What does not kill me, makes me stronger."
 ---
 
