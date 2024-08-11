@@ -7,16 +7,16 @@ import { ViewTransitions } from "astro:transitions";
 export interface Props {
   title: string;
   blogImg?: string;
-  descriptoin?: string;
+  blogDesc?: string;
 }
 
-const { title, blogImg, descriptoin } = Astro.props;
+const { title, blogImg, blogDesc } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" transition:animate="none">
   <head>
-    <HeadSEO title={title} blogImg={blogImg} description={descriptoin} />
+    <HeadSEO title={title} blogImg={blogImg} blogDesc={blogDesc} />
     <title>{title}</title>
     <ViewTransitions />
     <script defer is:inline>

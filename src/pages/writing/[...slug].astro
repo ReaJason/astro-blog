@@ -9,7 +9,7 @@ const blogs = await sortedPost();
 const listItems = blogs.map((blog) => ({
   title: blog.data.title,
   date: dateToString(blog.data.date),
-  href: "/writing/" + blog.slug,
+  href: `/writing/${blog.slug}`,
   top: !!blog.data.sticky,
 }));
 
@@ -27,7 +27,7 @@ const { Content } = await entry.render();
 <Layout
   title={entry.data.title}
   blogImg={entry.data.index_img}
-  descriptoin={entry.data.description}
+  blogDesc={entry.data.description}
 >
   <div class="flex w-full">
     <SideList listItems={listItems} title="Writing" />
