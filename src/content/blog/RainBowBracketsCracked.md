@@ -192,10 +192,9 @@ public static class LicenseExpirationInterceptor {
 ![second-cracked-result](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/RainBowBracketsCracked_img/second-cracked-result.png)
 ![paid-feature](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/RainBowBracketsCracked_img/paid-feature.png)
 
-成品代码位于 [bytebuddy-agent-demo/rainbow-brackets-2024.2.1](https://github.com/JAgentSphere/bytebuddy-agent-demo/tree/rainbow-brackets-2024.2.1)
+成品代码位于 [bytebuddy-agent-demo/rainbow-brackets-2024.2.6](https://github.com/JAgentSphere/bytebuddy-agent-demo/tree/2024.2.6)
 
-成品位于 [rainbow-brackets-cracked.jar
-](https://github.com/JAgentSphere/bytebuddy-agent-demo/releases/tag/rainbow-brackets-2024.2.1)
+成品位于 [rainbow-brackets-cracked.jar](https://github.com/JAgentSphere/bytebuddy-agent-demo/releases/tag/2024.2.6)
 
 唯一需要注意的就是这个破解插件必须放在 ja-netfilter 前面，不然就会报下面的错，暂时还没解决以及没弄懂产生的原因
 
