@@ -42,10 +42,6 @@ description: "Make your MacBook work like a charm"
 
 目前主要使用的是剪贴板，配合自定义快捷键，还有很多功能待发现。
 
-### CleanShot_X_4.5
-
-截图软件。[🔗](https://lingsiki.lanzouw.com/if8YZ1fk850f)
-
 ### [Spotify](https://open.spotify.com/download)
 
 听歌，听播客，配合 [SpotX-Mac](https://github.com/Nuzair46/SpotX-Mac) 去广告。
@@ -59,10 +55,6 @@ description: "Make your MacBook work like a charm"
 ### [ClashX.Meta](https://github.com/MetaCubeX/ClashX.Meta)
 
 我不知道没了这个软件怎么活。自制节点白嫖链接：https://sub.reajason.eu.org/clash.yaml
-
-### [IINA](https://iina.io/)
-
-暂时用这个看视频。
 
 ### 其他
 
@@ -113,7 +105,9 @@ S-J14-NEO_PENG#890808-1jqjtz91lywcp9#23624
 
 最近在尝试 Alacritty + Zellij 组合。
 
-```bash
-# 设置 alacritty 为默认终端
-defaults write com.apple.terminal Shell -string "/opt/homebrew/bin/alacritty"
-```
+## 使用技巧
+
+### Finder
+
+1. 复制文件的绝对路径，在目标文件右键，按下 option 会显示 copy file as pathname
+2. 显示隐藏文件，shift + command + .
