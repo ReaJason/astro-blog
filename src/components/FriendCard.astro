@@ -1,0 +1,54 @@
+---
+const { name, url, avatar, description } = Astro.props;
+---
+
+<div class="flex flex-col border border-gray-300 border-solid rounded p-4 mt-4">
+    <a
+        href={url}
+        class="group block w-full h-full rounded-md transition-all duration-200"
+        target="_blank"
+        rel="noopener"
+    >
+        <div class="flex flex-nowrap w-full h-14">
+            <div
+                class="flex-none w-12 h-12 mr-3 transition-transform duration-200 ease-in-out group-hover:scale-110"
+            >
+                <img
+                    src={avatar}
+                    alt={name}
+                    class="w-full h-full rounded-full bg-transparent object-cover"
+                    onerror="this.onerror=null; this.src=this.srcset='/img/avatar.png'"
+                />
+            </div>
+
+            <div class="flex-1 grid flex-col leading-6">
+                <div class="truncate text-[var(--text-color)] font-bold">
+                    {name}
+                </div>
+                <div
+                    class="max-h-8 text-sm leading-normal text-[var(--sec-text-color)] line-clamp-2"
+                >
+                    {description}
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+<!-- Media Queries -->
+<style>
+    @media (max-width: 767px) {
+        .links {
+            @apply flex flex-col justify-center items-center;
+        }
+        .links .card {
+            @apply px-8;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .link-text:only-child {
+            @apply ml-4;
+        }
+    }
+</style>

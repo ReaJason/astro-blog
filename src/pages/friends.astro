@@ -1,5 +1,50 @@
 ---
-import Layout from 'src/layouts/Layout.astro'
+import FriendCard from "@components/FriendCard.astro";
+import TitleBar from "@components/TitleBar.astro";
+import Layout from "src/layouts/Layout.astro";
+
+// Define an interface for friend data
+interface Friend {
+    name: string;
+    avatar: string;
+    url: string;
+    description: string;
+}
+
+// Sample friend data
+const friends: Friend[] = [
+    {
+        name: "炎忍",
+        avatar: "https://blog.imyan.ren/media/avatar.jpg",
+        url: "https://blog.imyan.ren/",
+        description: "心之所愿，无所不成。",
+    },
+    {
+        name: "开摆工作室",
+        avatar: "https://kbai.cc/logo.png",
+        url: "https://blog.kbai.cc",
+        description: "让网友来评价！",
+    },
+    {
+        name: "windowBR",
+        avatar: "https://picture-1301348863.cos.ap-nanjing.myqcloud.com/Yukino_Icon.jpeg",
+        url: "https://windowbr.top/",
+        description: "关于",
+    },
+];
 ---
 
-<Layout title="Friends">友链</Layout>
+<Layout title="Friends">
+    <main class="relative flex max-h-screen w-full flex-col overflow-y-auto">
+        <TitleBar title="Friends" />
+        <div class="mx-auto w-full px-4 py-12 pb-10 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {
+                    friends.map((friend) => (
+                        <FriendCard name={friend.name} url={friend.url} description={friend.description} avatar={friend.avatar} />
+                    ))
+                }
+            </div>
+        </div>
+    </main>
+</Layout>

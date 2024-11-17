@@ -5,6 +5,10 @@ import Layout from "src/layouts/Layout.astro";
 import { dateToString, sortedPost } from "src/utils";
 
 const blogEntries = await sortedPost();
+
+function isLongDescription(desc: string): boolean {
+  return desc ? desc.length > 25 : false;
+}
 ---
 
 <Layout title="Writing">
@@ -18,7 +22,7 @@ const blogEntries = await sortedPost();
       >
         {
           blogEntries.map((blog) => (
-            <li class="px-3">
+            <li class={`px-3 ${isLongDescription(blog.data.description as string) ? 'md:col-span-2' : ''}`}>
               <PostCard
                 title={blog.data.title}
                 date={dateToString(blog.data.date)}
