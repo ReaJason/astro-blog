@@ -13,22 +13,22 @@
 	"dependencies": {
 		"@astrojs/rss": "^4.0.10",
 		"@astrojs/sitemap": "^3.2.1",
-		"astro": "^4.16.17",
+		"astro": "^4.16.18",
 		"markdown-it": "^14.1.0",
-		"sanitize-html": "^2.13.1",
+		"sanitize-html": "^2.14.0",
 		"unist-util-visit": "^5.0.0",
-		"vite": "^6.0.3"
+		"vite": "^6.0.6"
 	},
 	"devDependencies": {
-		"@iconify-json/carbon": "^1.2.4",
-		"@iconify-json/fa-solid": "^1.2.0",
-		"@iconify-json/simple-icons": "^1.2.15",
-		"@unocss/astro": "^0.65.1",
-		"@unocss/preset-attributify": "^0.65.1",
-		"@unocss/preset-icons": "^0.65.1",
-		"@unocss/preset-typography": "^0.65.1",
-		"@unocss/preset-uno": "^0.65.1",
-		"@unocss/reset": "^0.65.1",
-		"unocss": "^0.65.1"
+		"@iconify-json/carbon": "^1.2.5",
+		"@iconify-json/fa-solid": "^1.2.1",
+		"@iconify-json/simple-icons": "^1.2.17",
+		"@unocss/astro": "^0.65.3",
+		"@unocss/preset-attributify": "^0.65.3",
+		"@unocss/preset-icons": "^0.65.3",
+		"@unocss/preset-typography": "^0.65.3",
+		"@unocss/preset-uno": "^0.65.3",
+		"@unocss/reset": "^0.65.3",
+		"unocss": "^0.65.3"
 	}
 }
