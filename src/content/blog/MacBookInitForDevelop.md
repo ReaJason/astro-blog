@@ -7,28 +7,41 @@ index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/AndroidFlashRom_index_
 description: "Make your MacBook work like a charm"
 ---
 
-## 常用软件推荐
+## 系统设置
 
-## 文件备份
+### 轻点代替点按
 
-1. ssh 密钥备份
+[System Settings] -> [Trackpad] -> [Point & Click] 打开 Tap to click。
 
-    ```bash
-    # 权限设置
-    chmod 600 ~/.ssh/id_rsa*
-    ```
+### 三指拖动
 
-2. 代码 push
+[System Settings] -> [Accessibility] -> [Pointer Control] -> [Trackpad Options...] Dragging style 选择 Three Finger Drag。
 
-    ```bash
-    git add .
-    git commit -m "temp"
-    git push
-    ```
+### 光标加速
 
-3. 备份 2FA 相关的 recovery code
+[System Settings] -> [Keyboard] Key repeat rate 拖到最右边，Delay until repeat 拖到最右边。
+
+### Dock 自动隐藏
+
+```bash
+# 设置启动坞动画时间设置为 0.5 秒
+defaults write com.apple.dock autohide-time-modifier -float 0.5 && killall Dock
+
+# 设置启动坞响应时间最短
+defaults write com.apple.dock autohide-delay -int 0 && killall Dock
+
+# 恢复启动坞默认动画时间
+defaults delete com.apple.dock autohide-time-modifier && killall Dock
+
+# 恢复默认启动坞响应时间
+defaults delete com.apple.Dock autohide-delay && killall Dock
+```
 
 ## 常用软件
+
+### [Homebrew](https://brew.sh/)
+
+用来下载其他命令行工具，也可以下载字体，下载 APP。
 
 ### 找书
 
@@ -36,7 +49,7 @@ description: "Make your MacBook work like a charm"
 
 ### [Brave Browser](https://brave.com/)
 
-浏览器，方便同步书签和扩展插件还有密码管理。
+防追踪浏览器。
 
 ### [Raycast](https://www.raycast.com/)
 
@@ -46,8 +59,6 @@ description: "Make your MacBook work like a charm"
 
 听歌，听播客，配合 [SpotX-Mac](https://github.com/Nuzair46/SpotX-Mac) 去广告。
 
-偶尔会在 [这儿](https://slider.kz/) 找找歌听。
-
 ### [Telegram](https://macos.telegram.org/)
 
 节点白嫖据点 -> https://t.me/vpnhat ，偶尔能找到好资源。
@@ -55,6 +66,8 @@ description: "Make your MacBook work like a charm"
 ### [ClashX.Meta](https://github.com/MetaCubeX/ClashX.Meta)
 
 我不知道没了这个软件怎么活。自制节点白嫖链接：https://sub.reajason.eu.org/clash.yaml
+
+部分节点可能无法使用 22 端口，导致开启代理是 GIT 无法 Push，可以将改 SSH over HTTPS，参考 https://docs.github.com/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port。
 
 ### 其他
 
@@ -111,3 +124,10 @@ S-J14-NEO_PENG#890808-1jqjtz91lywcp9#23624
 
 1. 复制文件的绝对路径，在目标文件右键，按下 option 会显示 copy file as pathname
 2. 显示隐藏文件，shift + command + .
+
+## 参考博客
+
+1. https://www.rustc.cloud/mac-install
+2. https://g4ti0r.github.io/wiki/Mac/system.html
+3. https://github.com/macdao/ocds-guide-to-setting-up-mac
+4. https://blog.lkwplus.com/posts/macos-dev-setup
