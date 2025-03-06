@@ -9,7 +9,7 @@ description: "DevOps 之拥有一个自己 GitHub Repo 的发布 CI"
 
 ## 目标
 
-> 其实很多大的开源项目手动发布 Release 的，不过对于个人项目来说，弄一个自动发布的 CI 当时是事半功倍的事情。
+> 其实很多大的开源项目手动发布 Release 的，不过对于个人项目来说，弄一个自动发布的 CI 当然是事半功倍的事情。
 
 1. 每次提交 TAG 的时候自动触发 Release CI 进行发布
 2. 将 CHANGELOG 中以 TAG 版本号为开头的内容当作 GitHub Release 的详情
