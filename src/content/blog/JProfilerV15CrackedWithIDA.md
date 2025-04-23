@@ -1,7 +1,7 @@
 ---
 title: 记录 JProfiler V15 破解
 date: "2025-04-24 01:11:55"
-index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/RainBowBracketsCracked_index_img.png
+index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/JProfilerV15CrackedWithIDA/JProfilerUselessV14key.png
 tags: [Cracked, IDA]
 categories: [Blog]
 description: "IDEA 启动！IDA 启动！"
