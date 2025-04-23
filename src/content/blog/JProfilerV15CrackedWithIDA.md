@@ -67,7 +67,7 @@ S-J14-NEO_PENG#890808-1jqjtz91lywcp9#23624
 
 ![KeyPoint1.png](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/JProfilerV15CrackedWithIDA/KeyPoint1.png)
 
-针对第一个 `!a(var2)`，跟进去，可以看到 V15 版本不能用 J14 了，要使用 J15，第一个没过直接寄了，所以我们改一下我们的许可证变为 `S-J15-NEO_PENG#890808-1jqjtz91lywcp9#23624`，我们在 `return !a(var2) && (a(var5, var2.a() + var4, 37, 51, 8) || a(var5, var2.a() + var4, 83, 52, 3)) ? var2.e() : this.c(var1);` 打上断点，重新输入新的许可证点击确认。
+针对第一个 `!a(var2)`，跟进去，可以看到 V15 版本不能用 J14 了，要使用 J15，第一个没过直接寄了，所以我们改一下我们的许可证变为 `S-J15-NEO_PENG#890808-1jqjtz91lywcp9#23624`，我们在 return !a(var2) && (a(var5, var2.a() + var4, 37, 51, 8) || a(var5, var2.a() + var4, 83, 52, 3)) ? var2.e() : this.c(var1); 打上断点，重新输入新的许可证点击确认。
 
 ```java
 private static boolean a(o var0) {
@@ -80,7 +80,7 @@ private static boolean a(o var0) {
 }
 ```
 
-后面 `(a(var5, var2.a() + var4, 37, 51, 8) || a(var5, var2.a() + var4, 83, 52, 3))` 两个调用的同一个函数的两种不同验证，看起来可能许可证分发可能就有两种方式。
+后面 (a(var5, var2.a() + var4, 37, 51, 8) || a(var5, var2.a() + var4, 83, 52, 3)) 两个调用的同一个函数的两种不同验证，看起来可能许可证分发可能就有两种方式。
 
 ![SuffixChecker.png](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/JProfilerV15CrackedWithIDA/SuffixChecker.png)
 
@@ -112,6 +112,7 @@ public class Hello {
 ```
 
 接下来到了重头戏，我们要开始跟着教程分析 dll 里面的代码了，在 IDEA 里面写一个简单的程序运行就行，JProfiler 注入的时候就会挂点，我们就有测试环境了。
+
 ```java
 public class ForLoop {
     public static void main(String[] args) {
@@ -199,7 +200,7 @@ public class ForLoop {
 
 ![IDADebugStart.png](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/JProfilerV15CrackedWithIDA/IDADebugStart.png)
 
-我们开启 Jprofiler 也同样注入到这个进程中去，程序就成功在这个 call 调用这儿停下来了。
+我们开启 JProfiler 也同样注入到这个进程中去，程序就成功在这个 call 调用这儿停下来了。
 
 ![IDADebugCallFunc.png](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/JProfilerV15CrackedWithIDA/IDADebugCallFunc.png)
 
