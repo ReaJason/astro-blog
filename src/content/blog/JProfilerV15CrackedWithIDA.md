@@ -27,13 +27,13 @@ S-J14-NEO_PENG#890808-1jqjtz91lywcp9#23624
 
 ## 前言
 
-最近一直在开发一款策略引擎，因为快到 deadline，所以需要开始测试性能了，于是我打开了尘封已久的 [JProfiler](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/JProfilerV15CrackedWithIDA/https://www.ej-technologies.com/jprofiler/download)，很久不用的软件我都习惯性地去官网看一下有没有新版顺便更新一下，刚好看到 V15 出来了（之前一直用的 V14，激活码用的是 [zhile.io/jprofiler-license.html](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/JProfilerV15CrackedWithIDA/https://zhile.io/2022/02/22/jprofiler-license.html) 提供的）。
+最近一直在开发一款策略引擎，因为快到 deadline，所以需要开始测试性能了，于是我打开了尘封已久的 [JProfiler](https://www.ej-technologies.com/jprofiler/download)，很久不用的软件我都习惯性地去官网看一下有没有新版顺便更新一下，刚好看到 V15 出来了（之前一直用的 V14，激活码用的是 [zhile.io/jprofiler-license.html](https://zhile.io/2022/02/22/jprofiler-license.html) 提供的）。
 
 我更新好了 V15 输入 V14 提供的激活码，可惜并不能用。
 
 ![JProfilerUselessV14key.png](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/JProfilerV15CrackedWithIDA/JProfilerUselessV14key.png)
 
-之前博客的作者弄了个 LinuxDo 论坛，论坛上搜也没有最新的，搜索引擎上搜也没有最新的，随后去了我之前常住的论坛 52pojie，搜到了一篇看起来特别有实操性的分析文章：[jprofiler 最新版逆向分析](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/JProfilerV15CrackedWithIDA/https://www.52pojie.cn/forum.php?mod=viewthread&tid=1993300)。于是开启了我的实操之路。
+之前博客的作者弄了个 LinuxDo 论坛，论坛上搜也没有最新的，搜索引擎上搜也没有最新的，随后去了我之前常住的论坛 52pojie，搜到了一篇看起来特别有实操性的分析文章：[jprofiler 最新版逆向分析](https://www.52pojie.cn/forum.php?mod=viewthread&tid=1993300)。于是开启了我的实操之路。
 
 ## IDEA 调试
 
@@ -136,7 +136,7 @@ public class ForLoop {
 
 > 网上 IDA 版本很多，直接最新的 9.1 就好，当然可能这篇文章写完又有新的了，直接最新的。以下是 9.1 的安装方式。
 
-1. 下载可以直接从 [52pojie](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/JProfilerV15CrackedWithIDA/https://www.52pojie.cn/forum.php?mod=viewthread&tid=2014013&highlight=ida%2B9.1) 上下，也可以 TG 私信我，我发给你（我在我 TG 群存了一份）。
+1. 下载可以直接从 [52pojie](https://www.52pojie.cn/forum.php?mod=viewthread&tid=2014013&highlight=ida%2B9.1) 上下，也可以 TG 私信我，我发给你（我在我 TG 群存了一份）。
 2. 一直下一步下一步安装完整之后，下载 patch.py 脚本移动到 IDA 的安装目录，我的是 `C:\Program Files\IDA Professional 9.1` 目录，在当前目录下执行 `python patch.py`，会生成 `ida.dll.patch` 和 `ida32.dll.patch`，将 `ida.dll` 和 `ida32.dll` 都加上 `.bak`，然后把 patch 后缀的文件去掉即可生效。
 
 ### jprofilerti.dll 分析
