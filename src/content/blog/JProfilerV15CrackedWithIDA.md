@@ -37,7 +37,7 @@ S-J14-NEO_PENG#890808-1jqjtz91lywcp9#23624
 
 ## IDEA 调试
 
-> 由于为了环境问题导致中途放弃，我特意打开我的 Windows 跟了一遍教程（虽然实际上是因为 MacOS 上 IDA 功能不全没法完成，不得不用 Windows）
+> 由于害怕环境问题导致中途放弃，我特意打开我的 Windows 跟了一遍教程（虽然实际上是因为 MacOS 上 IDA 功能不全，没法完成，不得不用 Windows）
 
 根据大佬的帖子，部分校验代码在 jprofiler.jar 中，根据我的安装位置：`C:\Program Files\jprofiler15\bin\jprofiler.jar`，打开任意 IDEA 项目，移到项目根目录，并添加到库中，方便之后的调试。
 
@@ -137,7 +137,7 @@ public class ForLoop {
 > 网上 IDA 版本很多，直接最新的 9.1 就好，当然可能这篇文章写完又有新的了，直接最新的。以下是 9.1 的安装方式。
 
 1. 下载可以直接从 [52pojie](https://www.52pojie.cn/forum.php?mod=viewthread&tid=2014013&highlight=ida%2B9.1) 上下，也可以 TG 私信我，我发给你（我在我 TG 群存了一份）。
-2. 一直下一步下一步安装完整之后，下载 patch.py 脚本移动到 IDA 的安装目录，我的是 `C:\Program Files\IDA Professional 9.1` 目录，在当前目录下执行 `python patch.py`，会生成 `ida.dll.patch` 和 `ida32.dll.patch`，将 `ida.dll` 和 `ida32.dll` 都加上 `.bak`，然后把 patch 后缀的文件去掉即可生效。
+2. 一直下一步下一步安装完整之后，下载 [patch.py](https://gist.github.com/ReaJason/466ab4f35171b2dcca1c075ce5ee1195) 脚本移动到 IDA 的安装目录，我的是 `C:\Program Files\IDA Professional 9.1` 目录，在当前目录下执行 `python patch.py`，会生成 `ida.dll.patch` 和 `ida32.dll.patch`，将 `ida.dll` 和 `ida32.dll` 都加上 `.bak`，然后把 patch 后缀的文件去掉即可生效。
 
 ### jprofilerti.dll 分析
 
