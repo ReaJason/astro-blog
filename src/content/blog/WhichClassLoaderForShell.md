@@ -79,7 +79,7 @@ try {
 }
 ```
 
-就在我去找这块报错到底是为何抛出来的时候，我发现了一切的真相。恰好我此时正在调试 Tomcat5 的环境，所以在 Tomcat5 catalina.jar 里边的 `org.apache.catalina.core.ApplicationFilterConfig#getFilter` 发现了如下代码（低版本没封装，看起来相对比较容器和直观）：
+就在我去找这块报错到底是为何抛出来的时候，我发现了一切的真相。恰好我此时正在调试 Tomcat5 的环境，所以在 Tomcat5 catalina.jar 里边的 `org.apache.catalina.core.ApplicationFilterConfig#getFilter` 发现了如下代码（低版本没封装，看起来相对比较容易和直观）：
 
 ```java
 // ApplicationFilterConfig
