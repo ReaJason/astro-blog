@@ -27,31 +27,26 @@ export const navigations: NavigationGroup[] = [
       }
     ],
   },
-  {
-    label: 'Me',
-    items: [
-      {
-        label: 'Notes',
-        href: '/notes',
-        iconClass: 'i-fa-solid-star',
-      },
-      {
-        label: 'Plans',
-        href: '/plans',
-        iconClass: 'i-fa-solid-tree',
-      },
-      {
-        label: 'Bookmarks',
-        href: '/bookmarks',
-        iconClass: 'i-fa-solid-bookmark',
-      },
-      {
-        label: 'Stack',
-        href: '/stack',
-        iconClass: 'i-simple-icons-stackoverflow',
-      },
-    ],
-  },
+  // {
+  //   label: 'Me',
+  //   items: [
+  //     {
+  //       label: 'Plans',
+  //       href: '/plans',
+  //       iconClass: 'i-fa-solid-tree',
+  //     },
+  //     {
+  //       label: 'Bookmarks',
+  //       href: '/bookmarks',
+  //       iconClass: 'i-fa-solid-bookmark',
+  //     },
+  //     {
+  //       label: 'Stack',
+  //       href: '/stack',
+  //       iconClass: 'i-simple-icons-stackoverflow',
+  //     },
+  //   ],
+  // },
   {
     label: 'Projects',
     items: [
@@ -62,9 +57,9 @@ export const navigations: NavigationGroup[] = [
         externalLink: true,
       },
       {
-        label: 'MSRESTfulAPI',
-        href: 'https://github.com/ReaJason/REST-API-Practice-With-SpringBoot',
-        iconClass: 'i-simple-icons-springboot',
+        label: 'MemShellParty',
+        href: 'https://github.com/ReaJason/MemShellParty',
+        iconClass: 'i-fa-solid-dragon',
         externalLink: true,
       },
     ],
