@@ -1,3 +1,6 @@
+---
+layout: ../layouts/IndexLayout.astro
+---
 # 👋 Hi, I'm ReaJason
 
 I obtained my bachelor’s degree in topography from [Central South University of Forestry and Technology](https://www.csuft.edu.cn/) in 2021.

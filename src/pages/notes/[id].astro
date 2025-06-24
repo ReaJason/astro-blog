@@ -1,6 +1,7 @@
 ---
 import SideList from "@components/SideList.astro";
 import TitleBar from "@components/TitleBar.astro";
+import { render } from "astro:content";
 import { getCollection } from "astro:content";
 import Layout from "src/layouts/Layout.astro";
 import { dateToString } from "src/utils";
@@ -14,18 +15,18 @@ const listItems = noteEntries
   .map((note) => ({
     title: note.data.title,
     date: dateToString(note.data.date),
-    href: "/notes/" + note.slug,
+    href: "/notes/" + note.id,
   }));
 
 export async function getStaticPaths() {
   const noteEntries = await getCollection("note");
   return noteEntries.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { id: entry.id },
     props: { entry },
   }));
 }
 
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <Layout title={entry.data.title}>

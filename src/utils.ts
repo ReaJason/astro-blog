@@ -1,7 +1,4 @@
-import { getCollection } from 'astro:content'
-
-export const sortedPost = async () => {
-  const blogs = await getCollection('blog')
+export const sortPost = (blogs) => {
   return blogs
     .filter((blog) => !blog.data.draft) // draft: true
     .filter((blog) => !blog.data.hide) // hide: true
@@ -19,7 +16,7 @@ export const openNavBar = () => {
   const overlayer = document.getElementById('overlayer')
   const menuBtns = document.querySelectorAll('.menu-btn')
   menuBtns.forEach((menuBtn) => {
-    const [menuIcon, closeIcon] = menuBtn.children
+    const [menuIcon, closeIcon] = Array.from(menuBtn.children) as HTMLElement[]
     menuIcon.classList.add('hidden')
     closeIcon.classList.remove('hidden')
   })
@@ -36,7 +33,7 @@ export const closeNavBar = () => {
   const overlayer = document.getElementById('overlayer')
   const menuBtns = document.querySelectorAll('.menu-btn')
   menuBtns.forEach((menuBtn) => {
-    const [menuIcon, closeIcon] = menuBtn.children
+    const [menuIcon, closeIcon] = Array.from(menuBtn.children) as HTMLElement[]
     menuIcon.classList.remove('hidden')
     closeIcon.classList.add('hidden')
   })

@@ -2,16 +2,16 @@ import rss from '@astrojs/rss';
 import sanitizeHtml from 'sanitize-html'
 import MarkdownIt from 'markdown-it';
 import { siteConfig } from '../configs/site'
-import { sortedPost } from "../utils"
+import { sortPost } from "../utils"
+import { getCollection } from "astro:content"
 const parser = new MarkdownIt();
 
 export async function GET(context) {
-  const posts = await sortedPost()
   return rss({
     title: siteConfig.title,
     description: siteConfig.description,
     site: context.site,
-    items: posts.map(post => ({
+    items: sortPost(await getCollection("blog")).map(post => ({
       link: `/writing/${post.slug}/`,
       content: sanitizeHtml(parser.render(post.body)),
       title: post.data.title,

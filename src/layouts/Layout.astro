@@ -2,7 +2,7 @@
 import HeadSEO from "@components/HeadSEO.astro";
 import SideBar from "@components/SideBar.astro";
 
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from 'astro:transitions';
 
 export interface Props {
   title: string;
@@ -18,7 +18,7 @@ const { title, blogImg, blogDesc } = Astro.props;
   <head>
     <HeadSEO title={title} blogImg={blogImg} blogDesc={blogDesc} />
     <title>{title}</title>
-    <ViewTransitions />
+    <ClientRouter />
     <script defer is:inline>
       const theme = (() => {
         if (

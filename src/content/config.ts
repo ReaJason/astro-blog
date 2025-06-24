@@ -1,6 +1,9 @@
 import {z, defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+
 const blog = defineCollection({
-  schema:z.object({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
+  schema: z.object({
     title: z.string(),
     date: z.string().transform(str => new Date(str)),
     tags: z.array(z.string()).optional(),
@@ -13,9 +16,8 @@ const blog = defineCollection({
   })
 });
 
-const about = defineCollection({})
-
 const note = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/note" }),
   schema: z.object({
     title: z.string(),
     type: z.string(),
@@ -23,4 +25,4 @@ const note = defineCollection({
   })
 })
 
-export const collections = { blog, about, note };
+export const collections = { blog, note };

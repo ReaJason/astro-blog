@@ -1,11 +1,7 @@
 ---
 import TitleBar from "@components/TitleBar.astro";
-import { getEntryBySlug } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import { siteConfig } from "src/configs/site";
-
-const about = await getEntryBySlug("about", "index");
-const { Content } = await about.render();
 ---
 
 <Layout title="ReaJason" blogImg={siteConfig.hompage}>
@@ -20,7 +16,7 @@ const { Content } = await about.render();
           <div class="grid items-start grid-cols-1 gap-6 md:grid-cols-12">
             <div class="col-span-12">
               <div class="prose text-primary">
-                <Content />
+                <slot />
               </div>
             </div>
           </div>

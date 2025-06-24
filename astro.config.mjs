@@ -1,9 +1,9 @@
 import { defineConfig } from 'astro/config'
 import Unocss from '@unocss/astro'
-import presetUno from '@unocss/preset-uno'
 import presetIcons from '@unocss/preset-icons'
 import presetAttributify from '@unocss/preset-attributify'
 import presetTypography from '@unocss/preset-typography'
+import presetWind4 from '@unocss/preset-wind4'
 import sitemap from '@astrojs/sitemap'
 import remarkLazyImage from './remark-image-lazy'
 
@@ -19,7 +19,7 @@ export default defineConfig({
     Unocss({
       injectReset: true,
       presets: [
-        presetUno(),
+        presetWind4(),
         presetAttributify(),
         presetTypography(),
         presetIcons({

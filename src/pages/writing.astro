@@ -2,9 +2,10 @@
 import PostCard from "@components/PostCard.astro";
 import TitleBar from "@components/TitleBar.astro";
 import Layout from "src/layouts/Layout.astro";
-import { dateToString, sortedPost } from "src/utils";
+import { dateToString, sortPost } from "src/utils";
+import { getCollection } from "astro:content";
 
-const blogEntries = await sortedPost();
+const blogEntries = sortPost(await getCollection("blog"))
 
 function isLongDescription(desc: string): boolean {
   return desc ? desc.length > 25 : false;
@@ -12,9 +13,7 @@ function isLongDescription(desc: string): boolean {
 ---
 
 <Layout title="Writing">
-  <main
-    class="relative flex max-h-screen w-full flex-col overflow-y-auto"
-  >
+  <main class="relative flex max-h-screen w-full flex-col overflow-y-auto">
     <TitleBar title="Writing" />
     <div class="mx-auto w-full px-4 py-12 pb-10 md:px-8">
       <ol
@@ -22,12 +21,14 @@ function isLongDescription(desc: string): boolean {
       >
         {
           blogEntries.map((blog) => (
-            <li class={`px-3 ${isLongDescription(blog.data.description as string) ? 'md:col-span-2' : ''}`}>
+            <li
+              class={`px-3 ${isLongDescription(blog.data.description as string) ? "md:col-span-2" : ""}`}
+            >
               <PostCard
                 title={blog.data.title}
                 date={dateToString(blog.data.date)}
                 desc={blog.data.description}
-                href={"/writing/" + blog.slug}
+                href={"/writing/" + blog.id}
               />
             </li>
           ))
