@@ -240,7 +240,7 @@ public class TomcatEcho {
 
 测试步骤为，在靶场写一个 RCE，然后将回显的字节码发送给靶场，assert 靶场的响应为我们预期即可。
 
-我写了一个超级无敌 RCE 的 base64 defineClass 的漏洞靶场，直接读取 data 中的 base64 类字节码进行加载，并且往响应里面打印类对象（会自动 toString，也可以测其他逻辑卸载 toString 的 payload）。
+我写了一个超级无敌 RCE 的 base64 defineClass 的漏洞靶场，直接读取 data 中的 base64 类字节码进行加载，并且往响应里面打印类对象（会自动 toString，也可以测其他恶意代码写在 toString 的 payload）。
 
 ```java
 public class Base64ClassLoaderServlet extends ClassLoader implements Servlet {
