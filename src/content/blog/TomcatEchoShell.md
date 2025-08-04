@@ -395,7 +395,7 @@ b2b07b202dd6   reajason/tomcat:5-jdk6   "/usr/local/tomcat/b…"   10 minutes ag
 Successfully copied 28.7MB to /Users/reajason/Downloads/.
 ```
 
-打开 JProfiler 就会弹出 JProfiler Start Center，点 Open Snapshots 的第一个，然后选中我们的 heapDump 文件。
+打开 JProfiler（激活问题可参考：[记录 JProfiler V15 破解](https://reajason.eu.org/writing/jprofilerv15crackedwithida/)）就会弹出 JProfiler Start Center，点 Open Snapshots 的第一个，然后选中我们的 heapDump 文件。
 
 ![jprofiler-center](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/TomcatEchoShell_img/jprofiler-center.png)
 
