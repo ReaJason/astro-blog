@@ -12,7 +12,7 @@ export async function GET(context) {
     description: siteConfig.description,
     site: context.site,
     items: sortPost(await getCollection("blog")).map(post => ({
-      link: `/writing/${post.slug}/`,
+      link: `/writing/${post.id}/`,
       content: sanitizeHtml(parser.render(post.body)),
       title: post.data.title,
       pubDate: post.data.date,
