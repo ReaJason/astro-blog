@@ -9,7 +9,7 @@ import remarkLazyImage from './remark-image-lazy'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://reajason.com',
+  site: 'https://reajason.eu.org',
   prefetch: true,
   markdown: {
     gfm: true,
