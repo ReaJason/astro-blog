@@ -458,7 +458,7 @@ thData.[index].endpoint.handler.global
 
 两个都是获取到的一个对象，因此都是可用的。为减少代码量，我选择第一条链路，直接属性调用，不需要遍历可以减少代码。
 
-与此同时，我发现 `!var5.contains("exec") && var5.contains("http")` 不太可用，因此我打印了所有命中的 threadName 和 targetClassName。
+与此同时，我发现在过滤线程时写的 `!var5.contains("exec") && var5.contains("http")` 不够完美，根据前面获取 request 的方式，我们就是希望从 Poller 或者 Acceptor 线程拿，因此我们可以直接指定线程特征进行解析，后续为了优化这个线程过滤的判断，我打印了所有命中的 threadName 和 targetClassName（已在注释中标记），也顺便排除了一下 ajp 线程。
 
 ## 最终实现
 
@@ -592,7 +592,7 @@ public class TomcatEcho {
 }
 ```
 
-MemShellParty 2.0 目前仍然在开发阶段，这部分代码之后会随着发版进行上线，敬请期待。
+MemShellParty 2.0 已发布，欢迎使用~。
 
 ## 额外的测试
 
@@ -720,7 +720,7 @@ public class RequestInfo {
 }
 ```
 
-因此回显马也可以改为如下：
+因此回显马也可以改为如下：（不推荐，在 Tomcat 低版本不可用）
 
 ```java
 for (Object processor : processors) {
