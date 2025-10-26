@@ -3,7 +3,7 @@ title: 记第一次装机 - 9800X3D/9070XT
 tags: [Notions]
 categories: [Blog]
 index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/FirstDesktopComputer_index_img.png
-date: "2025-10-24 06:50:00"
+date: "2025-10-26 13:50:00"
 description: "游戏的最高配置果然还是能有一起开黑的朋友"
 ---
 
