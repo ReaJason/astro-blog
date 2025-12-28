@@ -1,17 +1,9 @@
 ---
-import SideList from "@components/SideList.astro";
 import TitleBar from "@components/TitleBar.astro";
 import { render } from "astro:content";
 import { getCollection } from "astro:content";
 import Layout from "src/layouts/Layout.astro";
-import { dateToString, sortPost } from "src/utils";
-
-const listItems = sortPost(await getCollection("blog")).map((blog) => ({
-  title: blog.data.title,
-  date: dateToString(blog.data.date),
-  href: `/writing/${blog.id}`,
-  top: !!blog.data.sticky,
-}));
+import { dateToString } from "src/utils";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -30,20 +22,17 @@ const { Content } = await render(post);
   blogDesc={post.data.description}
 >
   <div class="flex w-full">
-    <SideList listItems={listItems} title="Writing" />
     <article
       class="relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black"
       transition:animate="fade"
     >
       <TitleBar detailPage="true" backHref="/writing" />
-      <div class="mx-auto w-full max-w-3xl px-4 py-12 pb-24 md:px-8">
-        <div class="space-y-3">
-          <h1 class="text-primary font-sans text-2xl font-bold xl:text-3xl">
+      <div class="mx-auto w-full max-w-3xl px-4 pb-24 md:px-8">
+        <div class="flex flex-col gap-6">
+          <p class="opacity-60">{dateToString(post.data.date)}</p>
+          <h1 class="text-[1.75em] font-semibold">
             {post.data.title}
           </h1>
-          <span class="text-truegray inline-block leading-snug">
-            {dateToString(post.data.date)}
-          </span>
         </div>
         <div class="prose prose-sm text-left break-words">
           <Content />

@@ -1,39 +1,55 @@
 ---
-import PostCard from "@components/PostCard.astro";
 import TitleBar from "@components/TitleBar.astro";
 import Layout from "src/layouts/Layout.astro";
-import { dateToString, sortPost } from "src/utils";
+import { sortPost } from "src/utils";
 import { getCollection } from "astro:content";
 
-const blogEntries = sortPost(await getCollection("blog"))
+const blogEntries = sortPost(await getCollection("blog"));
 
-function isLongDescription(desc: string): boolean {
-  return desc ? desc.length > 25 : false;
-}
+const postsByYear: Record<string, typeof blogEntries> = {};
+blogEntries.forEach((post) => {
+  const year = post.data.date.getFullYear().toString();
+  if (!postsByYear[year]) {
+    postsByYear[year] = [];
+  }
+  postsByYear[year].push(post);
+});
+
+const sortedYears = Object.keys(postsByYear).sort(
+  (a, b) => parseInt(b) - parseInt(a),
+);
 ---
 
 <Layout title="Writing">
   <main class="relative flex max-h-screen w-full flex-col overflow-y-auto">
     <TitleBar title="Writing" />
-    <div class="mx-auto w-full px-4 py-12 pb-10 md:px-8">
-      <ol
-        class="grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1"
-      >
+    <div class="mx-auto w-full max-w-xl px-4 py-16">
+      <div class="flex flex-col gap-16">
         {
-          blogEntries.map((blog) => (
-            <li
-              class={`px-3 ${isLongDescription(blog.data.description as string) ? "md:col-span-2" : ""}`}
-            >
-              <PostCard
-                title={blog.data.title}
-                date={dateToString(blog.data.date)}
-                desc={blog.data.description}
-                href={"/writing/" + blog.id}
-              />
-            </li>
+          sortedYears.map((year) => (
+            <div class="flex flex-col gap-4 px-4">
+              <div class="opacity-60 leading-[1.6] select-none">{year}</div>
+              <ul class="flex flex-col gap-4">
+                {postsByYear[year].map((post) => (
+                  <li class="flex flex-col">
+                    <a
+                      class="inline-flex flex-col gap-1 group/list-item"
+                      href={`/writing/${post.id}`}
+                    >
+                      <span class="text-xl text-primary font-medium underline-offset-1 group-hover/list-item:underline line-clamp-none">
+                        {post.data.title}
+                      </span>
+                      <span class="text-sm opacity-60 leading-relaxed">
+                        {post.data.description ?? "no desc"}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))
         }
-      </ol>
+      </div>
     </div>
   </main>
 </Layout>

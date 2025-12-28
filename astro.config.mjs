@@ -6,14 +6,20 @@ import presetTypography from '@unocss/preset-typography'
 import presetWind4 from '@unocss/preset-wind4'
 import sitemap from '@astrojs/sitemap'
 import remarkLazyImage from './remark-image-lazy'
+import remarkToc from 'remark-toc';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://reajason.eu.org',
   prefetch: true,
   markdown: {
-    gfm: true,
-    remarkPlugins: [remarkLazyImage]
+    shikiConfig: {
+      themes: {
+        light: 'github-light',
+        dark: 'github-dark',
+      },
+      remarkPlugins: [remarkLazyImage, remarkToc]
+    },
   },
   integrations: [
     Unocss({
