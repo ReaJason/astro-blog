@@ -3,9 +3,8 @@ title: 2024 年度总结
 date: "2025-01-01 22:20:53"
 categories: [AnnualSummary]
 description: "塔塔开"
-index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/2023AnnualSummary_index_img.png
+index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/2023AnnualSummary_index_img.jpg
 ---
-
 ### 上半年
 
 - 创建了 GitHub Organization [JAgentSphere](https://github.com/JAgentSphere)，写了 Agent 相关的项目，最后维护的只剩下（被认为有用且我也一直在用的）[IDEA 彩虹括号破解](https://github.com/JAgentSphere/bytebuddy-agent-demo/tree/rainbow-brackets-cracked)。

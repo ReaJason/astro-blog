@@ -4,9 +4,8 @@ tags: [Notes]
 categories: [Blog]
 date: "2024-10-25 00:00:00"
 description: "Optimize DX(Developer Experience) with Mihomo"
-index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/Ubuntu2004MihomoTUNMode_index_img.png
+index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/Ubuntu2004MihomoTUNMode_index_img.jpg
 ---
-
 ## Docker Pull Timeout
 
 Unfortunately, docker hub has been banned in mainland China due to some [reasons](https://www.v2ex.com/t/941538#reply11). So many docker register proxy website were stopped, and the docker pull command output is here, when you use docker pull.

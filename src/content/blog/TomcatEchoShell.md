@@ -2,11 +2,10 @@
 title: Tomcat 通用回显初见到全版本适配
 tags: [Java]
 categories: [Note]
-index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/TomcatEchoShell_index_img.png
+index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/TomcatEchoShell_index_img.jpg
 date: "2025-08-04 21:42:00"
 description: "JProfiler 对象引用查找与编写可维护的代码"
 ---
-
 ## TL;DR
 
 1. 第一次真正去了解回显马，发现还是挺神奇的

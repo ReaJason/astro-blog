@@ -3,9 +3,8 @@ title: 2023 年度总结
 date: "2023-12-25 22:20:53"
 categories: [AnnualSummary]
 description: "在不断变化中摸索前进"
-index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/2023AnnualSummary_index_img.png
+index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/2023AnnualSummary_index_img.jpg
 ---
-
 > 改变，就是好事 —— 英雄联盟，卡兹克
 
 ### TL;DR
