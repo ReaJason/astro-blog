@@ -1,10 +1,8 @@
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import sitemap from "@astrojs/sitemap";
+import tailwindcss from "@tailwindcss/vite";
 import Unocss from "@unocss/astro";
-import presetAttributify from "@unocss/preset-attributify";
 import presetIcons from "@unocss/preset-icons";
-import presetTypography from "@unocss/preset-typography";
-import presetWind4 from "@unocss/preset-wind4";
 import { defineConfig } from "astro/config";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkLazyImage from "./remark-image-lazy";
@@ -13,15 +11,19 @@ import remarkLazyImage from "./remark-image-lazy";
 export default defineConfig({
 	site: "https://reajason.eu.org",
 	prefetch: true,
+
 	markdown: {
 		rehypePlugins: [
-			[rehypeHeadingIds, { headingIdCompat: true }],
+			rehypeHeadingIds,
 			[
 				rehypeAutolinkHeadings,
 				{
 					behavior: "wrap",
+					headingProperties: {
+						class: "flex scroll-m-28 flex-row items-center gap-2",
+					},
 					properties: {
-						class: "heading-link"
+						class: "group no-underline color-inherit inline-flex items-center gap-2",
 					},
 					content: {
 						type: "element",
@@ -37,7 +39,7 @@ export default defineConfig({
 							strokeLinecap: "round",
 							strokeLinejoin: "round",
 							ariaHidden: "true",
-							class: "heading-link-icon",
+							class: "size-3.5 shrink-0 text-fd-muted-foreground opacity-0 transition-opacity group-hover:opacity-100",
 						},
 						children: [
 							{
@@ -63,19 +65,15 @@ export default defineConfig({
 	},
 	integrations: [
 		Unocss({
-			injectReset: true,
 			presets: [
-				presetWind4(),
-				presetAttributify(),
-				presetTypography(),
 				presetIcons({
 					scale: 1,
 				}),
 			],
-			rules: [
-				["filter-blur", { "backdrop-filter": "saturate(180%) blur(20px)" }],
-			],
 		}),
 		sitemap(),
 	],
+	vite: {
+		plugins: [tailwindcss()],
+	},
 });

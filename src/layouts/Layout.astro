@@ -1,4 +1,5 @@
 ---
+import '../styles/global.css'
 import { ClientRouter } from "astro:transitions";
 import HeadSEO from "@components/HeadSEO.astro";
 import SideBar from "@components/SideBar.astro";
@@ -77,46 +78,6 @@ const { title, blogImg, blogDesc } = Astro.props;
           font-weight: var(--shiki-dark-font-weight) !important;
           text-decoration: var(--shiki-dark-text-decoration) !important;
         }
-      }
-
-
-      /* Heading anchor link styles */
-      .prose :is(h2, h3, h4, h5, h6) {
-        position: relative;
-        scroll-margin-top: 7rem;
-      }
-
-      .prose .heading-link {
-        text-decoration: none;
-        color: inherit;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .prose :is(h2, h3, h4, h5, h6):hover .heading-link {
-        opacity: 1;
-      }
-      
-      .prose .heading-link:hover {
-        text-decoration: none;
-      }
-      
-      .prose .heading-link-icon {
-        width: 0.875rem;
-        height: 0.875rem;
-        flex-shrink: 0;
-        color: #9ca3af;
-        opacity: 0;
-        transition: opacity 0.2s;
-      }
-
-      .prose .heading-link:hover .heading-link-icon {
-        opacity: 1;
-      }
-
-      html.dark .prose .heading-link-icon {
-        color: #6b7280;
       }
     </style>
     <script>

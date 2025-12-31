@@ -1,22 +1,22 @@
 ---
+import { getCollection } from "astro:content";
 import TitleBar from "@components/TitleBar.astro";
 import Layout from "src/layouts/Layout.astro";
-import { sortPost } from "src/utils";
-import { getCollection } from "astro:content";
+import { dateToString, sortPost } from "src/utils";
 
 const blogEntries = sortPost(await getCollection("blog"));
 
 const postsByYear: Record<string, typeof blogEntries> = {};
 blogEntries.forEach((post) => {
-  const year = post.data.date.getFullYear().toString();
-  if (!postsByYear[year]) {
-    postsByYear[year] = [];
-  }
-  postsByYear[year].push(post);
+	const year = post.data.date.getFullYear().toString();
+	if (!postsByYear[year]) {
+		postsByYear[year] = [];
+	}
+	postsByYear[year].push(post);
 });
 
 const sortedYears = Object.keys(postsByYear).sort(
-  (a, b) => parseInt(b) - parseInt(a),
+	(a, b) => parseInt(b) - parseInt(a),
 );
 ---
 
@@ -41,6 +41,9 @@ const sortedYears = Object.keys(postsByYear).sort(
                       </span>
                       <span class="text-sm opacity-60 leading-relaxed">
                         {post.data.description ?? "no desc"}
+                      </span>
+                      <span class="text-xs opacity-50 leading-relaxed">
+                        {dateToString(post.data.date)}
                       </span>
                     </a>
                   </li>
