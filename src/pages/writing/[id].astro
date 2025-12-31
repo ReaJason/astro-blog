@@ -1,16 +1,15 @@
 ---
+import { getCollection, render } from "astro:content";
 import TitleBar from "@components/TitleBar.astro";
-import { render } from "astro:content";
-import { getCollection } from "astro:content";
 import Layout from "src/layouts/Layout.astro";
 import { dateToString } from "src/utils";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  return posts.map((post) => ({
-    params: { id: post.id },
-    props: { post },
-  }));
+	const posts = await getCollection("blog");
+	return posts.map((post) => ({
+		params: { id: post.id },
+		props: { post },
+	}));
 }
 const { post } = Astro.props;
 const { Content } = await render(post);
@@ -34,7 +33,7 @@ const { Content } = await render(post);
             {post.data.title}
           </h1>
         </div>
-        <div class="prose prose-sm text-left break-words">
+        <div class="prose prose-neutral dark:prose-invert text-left break-words">
           <Content />
         </div>
       </div>
