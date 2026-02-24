@@ -19,7 +19,7 @@ const { title, blogImg, blogDesc } = Astro.props;
     <HeadSEO title={title} blogImg={blogImg} blogDesc={blogDesc} />
     <title>{title}</title>
     <ClientRouter />
-    <script defer is:inline>
+    <script is:inline>
       const theme = (() => {
         if (
           typeof localStorage !== "undefined" &&
@@ -32,11 +32,10 @@ const { title, blogImg, blogDesc } = Astro.props;
         }
         return "light";
       })();
-
-      if (theme === "light") {
-        document.documentElement.classList.remove("dark");
-      } else {
+      if (theme === "dark") {
         document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
       }
     </script>
   </head>
@@ -54,6 +53,7 @@ const { title, blogImg, blogDesc } = Astro.props;
         overflow: hidden;
         font-size: 1rem;
         line-height: 1.5rem;
+        background-color: #ffffff; 
       }
       html.dark {
         background: #121212;
@@ -73,7 +73,6 @@ const { title, blogImg, blogDesc } = Astro.props;
         .astro-code span {
           color: var(--shiki-dark) !important;
           background-color: var(--shiki-dark-bg) !important;
-          /* Optional, if you also want font styles */
           font-style: var(--shiki-dark-font-style) !important;
           font-weight: var(--shiki-dark-font-weight) !important;
           text-decoration: var(--shiki-dark-text-decoration) !important;
@@ -105,22 +104,14 @@ const { title, blogImg, blogDesc } = Astro.props;
       });
     </script>
     <script>
-      document.addEventListener("astro:after-swap", () => {
-        const theme = (() => {
-          if (
-            typeof localStorage !== "undefined" &&
-            localStorage.getItem("theme")
-          ) {
-            return localStorage.getItem("theme");
-          }
-          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            return "dark";
-          }
-          return "light";
-        })();
-        theme === "dark"
-          ? document.documentElement.classList.add("dark")
-          : document.documentElement.classList.add("light");
+      document.addEventListener("astro:before-swap", (ev) => {
+        const theme = localStorage.getItem("theme");
+        const isDark = theme === "dark" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        if (isDark) {
+          ev.newDocument.documentElement.classList.add("dark");
+        } else {
+          ev.newDocument.documentElement.classList.remove("dark");
+        }
       });
     </script>
   </body>
