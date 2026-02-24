@@ -62,6 +62,12 @@ export const navigations: NavigationGroup[] = [
         iconClass: 'i-fa-solid-dragon',
         externalLink: true,
       },
+      {
+        label: 'No One',
+        href: 'https://github.com/ReaJason/No-One',
+        iconClass: 'i-fa-solid-ghost',
+        externalLink: true,
+      },
     ],
   },
   {
