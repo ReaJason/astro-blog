@@ -5,7 +5,7 @@ import Unocss from "@unocss/astro";
 import presetIcons from "@unocss/preset-icons";
 import { defineConfig } from "astro/config";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import remarkLazyImage from "./remark-image-lazy";
+import remarkFancyboxImage from "./remark-fancybox-image";
 
 // https://astro.build/config
 export default defineConfig({
@@ -61,7 +61,7 @@ export default defineConfig({
 				},
 			],
 		],
-		remarkPlugins: [remarkLazyImage],
+		remarkPlugins: [remarkFancyboxImage],
 	},
 	integrations: [
 		Unocss({

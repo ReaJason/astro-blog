@@ -5,9 +5,10 @@ categories: [AnnualWishes]
 index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/2024AnnualWishes_index_img.jpeg
 description: '愿望还是要有的，万一哪天实现了呢'
 ---
+作为技术人员，产品和客户都会来我这儿“许愿”，问我这功能能不能做，什么时候能做好；
 
-作为技术人员，产品和客户都会来我这儿“许愿”，问我这功能能不能做，什么时候能做好；<br>
-作为开源爱好者，经常会有 issues 来“许愿”能不能实现某某功能；<br>
+作为开源爱好者，经常会有 issues 来“许愿”能不能实现某某功能；
+
 而作为 AI 时代的 coder，天天就是对着各大 AI 模型“许愿”，希望能解决我提出的问题。
 
 - [ ] 开坑至少 5 个开源小工具项目（寻找某个功能点少但价值高的软件应用场景）
