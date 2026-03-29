@@ -9,10 +9,14 @@ description: "IDEA 启动！IDA 启动！"
 
 ## TL;DR
 
-JProfiler V15 永久许可证密钥（姓名/公司随便填）：
+JProfiler V15/v16 永久许可证密钥（姓名/公司随便填）：
 
 ```text
+// v15
 S-J15-ReaJason#999999-pb3u8s3ugg83x#5242
+
+// v16
+S-J16-ReaJason#999999-3sc94wwypmqfru#39115
 ```
 
 以前版本的：
@@ -211,6 +215,12 @@ public class ForLoop {
 运气真的很好，第一个 strncmp 的调用居然就是我们要找的，如果有超级多我都不知道会不会中途放弃了。
 
 我们的之前填的激活码是 `S-J15-ReaJason#999999-1jqjtz91lywcp9#70320`，这儿的 rcx 刚好是我们的 `1jqjtz91lywcp9#70320`，因此我们按照原文的替换一下然后再重新生成一下得到我们最终的结果：`S-J15-ReaJason#999999-pb3u8s3ugg83x#5242`
+
+```python
+print(idaapi.get_bytes(ida_dbg.get_reg_val("rcx"), 100))
+
+print(idaapi.get_bytes(ida_dbg.get_reg_val("rdx"), 100))
+```
 
 ![IDADebugPrint.png](https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/JProfilerV15CrackedWithIDA/IDADebugPrint.png)
 
