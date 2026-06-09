@@ -119,7 +119,7 @@ System proxy does not work for `docker pull`, but tun mode does, here is my tun 
 ```yaml
 tun:
   enable: true
-  stack: mixed
+  stack: system
   strict_route: true
   auto-route: true
   auto-redirect: true
@@ -178,6 +178,19 @@ Reload and check the runing log.
 ```bash
 sudo systemctl reload mihomo
 sudo jornalctl -u mihomo -o cat -f
+```
+
+### Docker Container with TUN mode
+
+When Mihomo's TUN mode is active, Docker containers with mapped ports become accessible only via localhost — external IP access stops working. The root cause is that TUN mode intercepts all network traffic, including traffic originating from Docker containers. Since Mihomo doesn't know how to forward that traffic correctly, requests just get dropped.
+The fix is to add routing rules that steer Docker subnet traffic through the main network interface instead of Mihomo's TUN interface. Run the script below after Mihomo TUN mode has started:
+
+```bash
+#!/bin/bash
+# Prevent traffic already DNAT'd by Docker from being captured by the TUN routing table
+# Route Docker subnets through the main table instead
+ip rule add to 172.16.0.0/12 table main priority 98 2>/dev/null || true
+ip rule add to 10.0.0.0/8 table main priority 97 2>/dev/null || true
 ```
 
 ## Thanks
