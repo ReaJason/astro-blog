@@ -48,7 +48,7 @@ Surge 不支持 vless 协议，很多网上白嫖的节点有些是 vless 协议
 General 中是一些基础配置，比如一些内网地址、系统服务不要走代理，dns 服务器配置，哪些 IP 直接使用真实 IP。
 Rule 匹配是从上至下，优先看是否是广告网站直接 REJECT 拒绝连接，其次是直连地址，最后兜底使用 GEOIP，FINAL 则是前面所有不匹配走 PROXY 代理连接，走 PROXY 的意思就是在小火箭首页的节点列表选什么节点到时候这些命中 PROXY 的就会用什么节点（网上所有没有用 RULE-SET 而是一大片 RULE 的建议直接忽略，这种不更新成最新的规则列表就是垃圾配置），**因为每个人的上网需求不一样因此规则部分可能会需要单独进行调整**。
 
-```conf
+```plaintext
 # Shadowrocket: 2026-06-23 22:55:21
 [General]
 bypass-system = true
