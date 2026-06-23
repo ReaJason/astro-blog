@@ -1,6 +1,6 @@
 ---
 title: MacBook 使用总结
-date: "2026-06-12 23:00:00"
+date: "2026-06-12 01:22:00"
 tags: [Skill]
 categories: [macOS]
 index_img: https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/AndroidFlashRom_index_img.png
@@ -65,16 +65,11 @@ defaults delete com.apple.dock autohide-delay && killall Dock
 19. [Bruno](https://www.usebruno.com/)：Postman 替代品，开发用，方便发送一些简单的 API 调用
 20. [Codex](https://developers.openai.com/codex/app)：GUI Coding Agent，没用过 Codex 的开发不是好开发
 21. [CC Switch](https://github.com/farion1231/cc-switch)：快速切换 Claude Code、Codex 等 AI Agent 账号
+22. [Shadowrocket](#)：macOS/iPhone 统一翻墙工具，手机端：[小火箭苹果 ID 共享](https://id.ruyie.de/)、电脑端：[appstorrent-Shadowrocket](https://appstorrent.ru/4563-shadowrocket.html)，部分节点可能无法使用 22 端口，导致开启代理时 git 无法 Push，可以改用 [SSH over HTTPS](https://docs.github.com/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)
 
 ## 其他
 
-飞书、微信、Todesk、腾讯会议、QQ
-
-## 代理软件 - [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev)
-
-我不知道没了这个软件怎么活。在尝试了各种 [SingBox](https://github.com/SagerNet/sing-box)、[Sparkle](https://github.com/xishang0128/sparkle)、[ClashX.Meta](https://github.com/MetaCubeX/ClashX.Meta/tree/meta) 等等客户端还是 Clash Verge 比较稳定，出了网络问题能定位到问题且没那么卡。自制节点白嫖链接：[clash.yaml](https://sub.reajason.eu.org/clash.yaml)
-
-部分节点可能无法使用 22 端口，导致开启代理时 git 无法 Push，可以改用 [SSH over HTTPS](https://docs.github.com/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)。
+飞书、微信、Todesk/UU 远程、腾讯会议、QQ
 
 ## 常用网站
 
