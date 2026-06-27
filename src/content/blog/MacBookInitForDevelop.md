@@ -65,7 +65,7 @@ defaults delete com.apple.dock autohide-delay && killall Dock
 19. [Bruno](https://www.usebruno.com/)：Postman 替代品，开发用，方便发送一些简单的 API 调用
 20. [Codex](https://developers.openai.com/codex/app)：GUI Coding Agent，没用过 Codex 的开发不是好开发
 21. [CC Switch](https://github.com/farion1231/cc-switch)：快速切换 Claude Code、Codex 等 AI Agent 账号
-22. [Shadowrocket](#)：macOS/iPhone 统一翻墙工具，手机端：[小火箭苹果 ID 共享](https://id.ruyie.de/)、电脑端：[appstorrent-Shadowrocket](https://appstorrent.ru/4563-shadowrocket.html)，部分节点可能无法使用 22 端口，导致开启代理时 git 无法 Push，可以改用 [SSH over HTTPS](https://docs.github.com/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)
+22. [Shadowrocket](https://shadowlaunch.com/)：macOS/iPhone 统一科学上网工具，手机端：[小火箭苹果 ID 共享](https://id.ruyie.de/)、电脑端：[appstorrent-Shadowrocket](https://appstorrent.ru/4563-shadowrocket.html)，部分节点可能无法使用 22 端口，导致开启代理时 git 无法 Push，可以改用 [SSH over HTTPS](https://docs.github.com/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port) 或者将 remote url 改为 `https://` 不要使用 `git@`
 
 ## 其他
 
