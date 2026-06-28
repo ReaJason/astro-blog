@@ -49,37 +49,99 @@ General 中是一些基础配置，比如一些内网地址、系统服务不要
 Rule 匹配是从上至下，优先看是否是广告网站直接 REJECT 拒绝连接，其次是直连地址，最后兜底使用 GEOIP，FINAL 则是前面所有不匹配走 PROXY 代理连接，走 PROXY 的意思就是在小火箭首页的节点列表选什么节点到时候这些命中 PROXY 的就会用什么节点（网上所有没有用 RULE-SET 而是一大片 RULE 的建议直接忽略，这种不更新成最新的规则列表就是垃圾配置），**因为每个人的上网需求不一样因此规则部分可能会需要单独进行调整**。
 
 ```plaintext
-# Shadowrocket: 2026-06-23 22:55:21
+# Shadowrocket: 2026-06-28 20:19:49
+# 参考官方 TG 群组推荐的懒人配置：https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf
 [General]
-bypass-system = true
+
+# 网络兼容模式。当参数的值设定为 3 时的效果等同于：设置 > 代理 > 代理类型 > None。
+compatibility-mode = 3
+
+# 跳过代理。此选项强制这些域名或 IP 的连接范围由 Shadowrocket TUN 接口来处理，而不是 Shadowrocket 代理服务器。此选项用于解决一些应用程序的一些兼容性问题。
 skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, captive.apple.com, captive.v.apple.com, e.crashlytics.com, cpd.qq.com
-tun-excluded-routes = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32, 239.255.255.250/32
-udp-policy-not-supported-behaviour = DIRECT
-dns-server = https://dns.alidns.com/dns-query, https://doh.pub/dns-query
-fallback-dns-server = https://1.1.1.1/dns-query, https://8.8.8.8/dns-query
+
+# TUN 旁路路由。Shadowrocket TUN 接口只能处理 TCP 协议。使用此选项可以绕过指定的 IP 范围，让其他协议通过。
+tun-excluded-routes = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32, 239.255.255.250/32, ff02::fb/128
+
+# DNS 覆写。使用普通 DNS 或加密 DNS（如 DoH、DoQ、DoT 等）覆盖默认的系统 DNS。填 system 表示使用系统 DNS。
+dns-server = https://doh.pub/dns-query,https://dns.alidns.com/dns-query,223.5.5.5,119.29.29.29
+
+# 备用 DNS。当覆写 DNS 查询失败或查询时间超过 2 秒，Shadowrocket 会自动回退备用 DNS。如需指定多个 DNS，可用逗号分隔。system 表示回退到系统 DNS。
+fallback-dns-server = system
+
+# 启用 IPv6 支持。false 表示不启用，true 表示启用。启用会同时查询 A 记录和 AAAA 记录，优先使用 IPv4 地址解析。
+ipv6 = true
+
+# 首选 IPv6。优先向 IPv6 的 DNS 服务器查询 AAAA 记录，优先使用 IPv6 地址解析。false 表示不启用。
+prefer-ipv6 = false
+
+# 直连的域名类规则使用系统 DNS 进行查询。false 表示不启用。
+dns-direct-system = false
+
+# ping 数据包自动回复。
+icmp-auto-reply = true
+
+# 不开启时，「重写的 REJECT 策略」默认只有在配置模式下生效。开启后，可以令该策略在其他全局路由模式下都生效。
+always-reject-url-rewrite = false
+
+# 私有 IP 应答。如果不启用此选项，域名解析返回私有 IP，Shadowrocket 会认为该域名被劫持而强制使用代理。
+private-ip-answer = true
+
+# 直连域名解析失败后使用代理。false 表示不启用。
+dns-direct-fallback-proxy = true
+
+# DNS 劫持。有些设备或软件总是使用硬编码的 DNS 服务器，例如 Netflix 通过 Google DNS(8.8.8.8或8.8.4.4)发送请求，您可以使用此选项来劫持查询。
+hijack-dns = 8.8.8.8:53,8.8.4.4:53
+
+# 当 UDP 流量匹配到规则里不支持 UDP 转发的节点策略时重新选择回退行为，可选行为包括 DIRECT、REJECT。DIRECT 表示直连转发 UDP 流量，REJECT 表示拒绝转发 UDP 流量。
+udp-policy-not-supported-behaviour = REJECT
+
+# QUIC协议屏蔽策略。支持使用 all-proxy、all、always-allow 对 QUIC 传输层协议进行设置。其中 all-proxy 表示只对“走代理的连接”阻断 QUIC，直连连接（DIRECT）不会被干预；all 表示对所有连接（包括直连与代理）都屏蔽 QUIC，这会完全禁止系统中一切 UDP/443 流量；always-allow 表示始终允许 QUIC，不做任何屏蔽，等同于“关闭 QUIC 屏蔽”。
+block-quic = all-proxy
+
+# 总是真实 IP。此选项要求 Shadowrocket 在 TUN 处理 DNS 请求时返回一个真实的 IP 地址而不是假的 IP 地址。
 always-real-ip = rule-set:fakeip-filter, private, cn, +.stun.*, +.msftconnecttest.com, +.msftncsi.com, +.time.windows.com, time.apple.com
 
 [Rule]
 DOMAIN-SUFFIX,boundaryx.net,DIRECT
+DOMAIN-SUFFIX,luufery.net,DIRECT
 RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt,REJECT
-RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/applications.txt,DIRECT
-RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt,DIRECT,no-resolve
-RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple.txt,DIRECT
-RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/google.txt,DIRECT
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.list,DIRECT
-RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt,DIRECT
-RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt,PROXY
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/NetEaseMusic/NetEaseMusic.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/DouBan/DouBan.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/WeChat/WeChat.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Sina/Sina.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Zhihu/Zhihu.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/XiaoHongShu/XiaoHongShu.list,DIRECT
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list,PROXY
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.list,PROXY
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list,PROXY
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Spotify/Spotify.list,PROXY
+RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple.txt,DIRECT
+RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/google.txt,DIRECT
+RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt,DIRECT
+RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt,PROXY
 RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/telegramcidr.txt,PROXY,no-resolve
+RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt,DIRECT,no-resolve
 RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/cncidr.txt,DIRECT,no-resolve
 GEOIP,LAN,DIRECT,no-resolve
 GEOIP,CN,DIRECT,no-resolve
 FINAL,PROXY
 
 [Host]
+*.apple.com = server:system
+*.icloud.com = server:system
 localhost = 127.0.0.1
+
+[URL Rewrite]
+# Google搜索引擎防跳转的重写。
+^https?://(www.)?g.cn https://www.google.com 302
+^https?://(www.)?google.cn https://www.google.com 302
+
+[MITM]
+# Shadowrocket仅会解密hostname指定的域名的请求，可以使用通配符。也可以使用前缀 - 排除特定主机名，如 -*.example.com。iOS系统和某些应用有严格的安全策略，仅信任某些特定的证书，对这些域名启动解密可能导致问题，如 *.apple.com，*.icloud.com。
+# 自版本 2.2.81 (3096) 起支持通过 HTTP/2 协议进行中间人攻击来解密 HTTPS 流量。当在纯文本模式的 [MITM] 字段中使用 h2 = true 命令时表示启用，等同于在 UI 界面开启对应开关
+
+hostname = *.google.cn
 ```
 
 以上配置链接可直接订阅：<https://sub.reajason.eu.org/reajason.conf>，如果需要订阅节点也是按下面的方式进行订阅下载节点（下载成功节点会在首页能看到，并不需要更改配置）。
